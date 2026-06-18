@@ -91,12 +91,12 @@
                     </div>
                 </div>
                 <!-- Nav Links -->
-                <div class="hidden lg:flex items-center space-x-8 text-xs tracking-widest font-medium uppercase text-slate-600">
+                <div class="hidden lg:flex items-center space-x-6 text-xs tracking-widest font-medium uppercase text-slate-600">
                     <a href="#origin" class="hover:text-brand-orange transition py-2">私たちの原点</a>
+                    <a href="#experience" class="hover:text-brand-orange transition py-2">代表の体験談</a>
                     <a href="#medical" class="hover:text-brand-orange transition py-2">着床前診断とは</a>
                     <a href="#selection" class="hover:text-brand-orange transition py-2">海外での選択肢</a>
                     <a href="#workflow" class="hover:text-brand-orange transition py-2">進行の見える化</a>
-                    <a href="#price" class="hover:text-brand-orange transition py-2">費用案内</a>
                     <a href="#contact" class="bg-brand-orange hover:bg-[#D55F3C] text-white px-5 py-2.5 rounded-full transition duration-300 shadow-md shadow-brand-orange/10 flex items-center gap-2">
                         <span>無料相談する</span>
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
@@ -111,10 +111,10 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 px-6 py-6 space-y-4 shadow-xl">
             <a href="#origin" class="block text-sm text-slate-600 py-1 font-medium">私たちの原点</a>
+            <a href="#experience" class="block text-sm text-slate-600 py-1 font-medium">代表の体験談</a>
             <a href="#medical" class="block text-sm text-slate-600 py-1 font-medium">着床前診断とは</a>
             <a href="#selection" class="block text-sm text-slate-600 py-1 font-medium">海外での選択肢</a>
             <a href="#workflow" class="block text-sm text-slate-600 py-1 font-medium">進行の見える化</a>
-            <a href="#price" class="block text-sm text-slate-600 py-1 font-medium">費用案内</a>
             <a href="#contact" class="block text-center bg-brand-orange text-white py-3 rounded-xl font-medium tracking-wider">無料カウンセリング</a>
         </div>
     </nav>
@@ -299,7 +299,7 @@
                         <span class="text-[10px] uppercase tracking-wider text-brand-orange font-bold">構造的課題 02</span>
                         <h4 class="text-lg font-bold text-slate-900 mt-2 mb-4">契約関係の不透明さと消滅トラブル</h4>
                         <p class="text-sm leading-relaxed text-slate-500 font-light">
-                            海外のクリニックとの実質的な連絡体制は仲介会社に一任され、何が本当なのか見分ける術はありませんでした。私たちは実際に法的なトラブル、そして仲介会社を相手取った裁判まで身を以て経験しました。
+                            海外のクリニックとの実質的な連絡体制は仲介会社に一任され、何が本当なのか見分ける術はありませんでした。私たちは実際に法的なトラブル、精度を欠く説明、そして仲介会社を相手取った裁判まで身を以て経験しました。
                         </p>
                     </div>
                 </div>
@@ -316,8 +316,114 @@
         </div>
     </section>
 
+    <!-- 【体験談・インサイト】セクション (共感から知性へ繋ぐ構造に統合) -->
+    <section id="experience" class="py-24 md:py-32 bg-[#FAF8F5] border-t border-b border-slate-100 relative">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold tracking-widest text-brand-emerald uppercase">Official Note & Insights</span>
+                <h2 class="text-2xl md:text-3xl font-semibold text-slate-900 mt-2 tracking-tight text-serif">代表・当事者の公式体験記</h2>
+                <p class="text-slate-500 text-sm mt-3 font-light">心の葛藤を綴ったリアルな体験談から、知識としての技術論まで。お好みのタブに切り替えてご覧ください。</p>
+                <div class="w-12 h-[2px] bg-brand-emerald mx-auto mt-4"></div>
+            </div>
+
+            <!-- 右脳（エモーショナル） vs 左脳（ロジカル）切り替えタブスイッチ -->
+            <div class="flex justify-center mb-12">
+                <div class="inline-flex p-1.5 bg-slate-200/60 backdrop-blur rounded-full shadow-inner max-w-lg w-full">
+                    <!-- 心に寄り添うタブ（初期表示・左側配置） -->
+                    <button onclick="switchTab('emotional')" id="btn-emotional" class="flex-1 py-3 text-xs md:text-sm font-medium tracking-wider rounded-full transition-all duration-300 bg-white text-brand-orange font-bold shadow-sm focus:outline-none flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                        <span>心に寄り添う（体験談・葛藤）</span>
+                    </button>
+                    <!-- ロジカルに知るタブ（右側配置） -->
+                    <button onclick="switchTab('logical')" id="btn-logical" class="flex-1 py-3 text-xs md:text-sm font-medium tracking-wider rounded-full transition-all duration-300 text-slate-600 hover:text-slate-900 focus:outline-none flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                        <span>ロジカルに知る（技術・仕組み）</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- タブコンテンツ表示領域 -->
+            <div class="relative min-h-[380px]">
+                
+                <!-- CONTENT 1: エモーショナル（右脳派・体験談向け：初期状態アクティブ） -->
+                <div id="content-emotional" class="transition-all duration-500 transform opacity-100 scale-100 space-y-8">
+                    <!-- note 1記事目の紹介カード -->
+                    <div class="bg-white rounded-[2.5rem] overflow-hidden shadow-xl border border-orange-100 flex flex-col md:flex-row max-w-4xl mx-auto">
+                        <!-- カード左側：グラデーション装飾 -->
+                        <div class="md:w-2/5 bg-gradient-to-br from-orange-50 to-orange-100/40 p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-orange-100 relative">
+                            <div class="space-y-4">
+                                <span class="bg-[#E6724E] text-white px-3 py-1 rounded-md text-[10px] font-bold tracking-widest uppercase">Note 第1話</span>
+                                <p class="text-xs text-slate-400 font-medium font-serif tracking-wider">Founder's Personal Story</p>
+                            </div>
+                            <div class="mt-8 md:mt-0">
+                                <p class="text-3xl font-extrabold text-[#E6724E]/20 text-serif select-none">STORY</p>
+                                <p class="text-xs font-semibold text-brand-emerald text-serif leading-relaxed mt-2">
+                                    私が不妊治療の闇を経験し、この窓口を立ち上げるまで
+                                </p>
+                            </div>
+                        </div>
+                        <!-- カード右側：テキスト内容とリンクボタン -->
+                        <div class="md:w-3/5 p-8 md:p-10 flex flex-col justify-between space-y-6">
+                            <div class="space-y-3">
+                                <h3 class="text-lg md:text-xl font-bold text-slate-900 text-serif leading-snug">
+                                    「何度も頑張っているのに、なぜ」<br>言葉にできない喪失感と闘った日々
+                                </h3>
+                                <p class="text-xs md:text-sm text-slate-500 leading-relaxed font-light">
+                                    流産を繰り返し、すがる思いで見つけた海外の「着床前診断」。しかしそこで直面したのは、不透明なエージェント、高額な請求、そして最後は裁判へと至る過酷なトラブルという「医療の影に潜む構造的な闇」でした。同じ痛みを誰にも味わわせたくない。代表自らが当事者として語るリアルな想いをnoteに深く綴っています。
+                                </p>
+                            </div>
+                            <div>
+                                <a href="https://note.com/tane_mayui438/n/n77fbeeae20a5" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between bg-brand-orange hover:bg-[#D55F3C] text-white px-6 py-3.5 rounded-full text-xs font-bold tracking-widest transition-all duration-300 shadow-md shadow-brand-orange/20 w-full sm:w-auto sm:inline-flex gap-4">
+                                    <span>この体験談をnoteで詳しく読む</span>
+                                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 下部共感メッセージボード -->
+                    <div class="max-w-2xl mx-auto text-center bg-brand-emerald/5 p-6 rounded-2xl border border-brand-emerald/10 shadow-sm">
+                        <p class="text-xs md:text-sm text-brand-emerald font-medium leading-relaxed text-serif">
+                            一人で抱え込み、心を削る必要はありません。同じ経験をしたからこそ、あなたの言葉にならない迷いや不安、誰にも言えない産み分けの悩みに、どこよりも透明に、誠実に寄り添うことができます。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CONTENT 2: ロジカル（左脳派向け非表示が初期値） -->
+                <div id="content-logical" class="hidden transition-all duration-500 transform opacity-0 scale-95 space-y-8">
+                    <div class="grid md:grid-cols-2 gap-8 items-stretch bg-white p-8 md:p-12 rounded-[2.5rem] shadow-sm border border-slate-100 max-w-4xl mx-auto text-left">
+                        <div class="space-y-5 flex flex-col justify-between">
+                            <div class="space-y-4">
+                                <div class="inline-block bg-brand-emerald/10 text-brand-emerald px-3 py-1 rounded-md font-bold text-xs tracking-wider">技術と知識</div>
+                                <h3 class="text-xl font-bold text-slate-900 text-serif leading-snug">PGT-Aがもたらす科学的なアプローチと選択の基準</h3>
+                                <p class="text-xs md:text-sm text-slate-500 leading-relaxed font-light">
+                                    なぜ染色体の異数性を事前に調べる必要があるのか。統計的データに基づいた流産率の極小化や、日本と海外における遺伝子解析技術（NGS法など）の格差、そして国際輸送の透明性の重要性をロジカルに解説しています。不安の多くは「正しい情報がブラックボックス化していること」から生まれます。
+                                </p>
+                            </div>
+                            <div class="pt-2">
+                                <a href="#medical" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-brand-emerald hover:text-brand-orange transition">
+                                    <span>下記の詳細解説（仕組みと科学）へ進む</span>
+                                    <svg class="w-3.5 h-3.5 animate-bounce" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="bg-brand-bg border border-slate-100 p-6 md:p-8 rounded-2xl flex flex-col justify-center space-y-4">
+                            <h4 class="font-bold text-sm text-slate-800 text-serif border-b border-slate-200 pb-2">左脳的アプローチの解説トピック</h4>
+                            <ul class="space-y-3 text-xs text-slate-600 font-light">
+                                <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-emerald"></span>国内指針と世界基準のデータ比較</li>
+                                <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-emerald"></span>最新ゲノム解析「NGS法」の解像度とモザイク胚</li>
+                                <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-emerald"></span>国際バイオ輸送におけるリスク管理の可視化</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- Page 3: MEDICAL (着床前遺伝学的検査 PGTの科学的解説) -->
-    <section id="medical" class="py-24 md:py-32 bg-[#FAF8F5] border-y border-slate-100">
+    <section id="medical" class="py-24 md:py-32 bg-white border-y border-slate-100">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center mb-16">
                 <span class="text-xs font-bold tracking-widest text-brand-emerald uppercase">Scientific Analysis</span>
@@ -345,7 +451,7 @@
                         <div class="w-12 h-12 rounded-xl bg-brand-orange/5 text-brand-orange flex items-center justify-center font-bold text-lg">M</div>
                         <h3 class="text-xl font-bold text-slate-900 text-serif">特定の単一遺伝子疾患を調べる<br><span class="text-brand-emerald text-sm font-sans tracking-normal">(PGT-M)</span></h3>
                         <p class="text-sm text-slate-500 leading-relaxed font-light">
-                            ご夫婦のいずれかが特定の遺伝性疾患（単一遺伝子異常）の保因者である場合などに、その原因となる遺伝子の変異がないかを解析します。次世代に重篤な遺伝性疾患を継承する精神的不安を解消するための極めて個別性の高い検査です。
+                            ご夫婦のいずれかが特定の遺伝性疾患（単一遺伝子異常）の保因者である場合などに、その原因となる遺伝子の変演がないかを解析します。次世代に重篤な遺伝性疾患を継承する精神的不安を解消するための極めて個別性の高い検査です。
                         </p>
                     </div>
                 </div>
@@ -514,113 +620,6 @@
         </div>
     </section>
 
-    <!-- Page 6: PRICING (費用のご案内) -->
-     <!--
-    <section id="price" class="py-24 md:py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-xs font-bold tracking-widest text-[#D55F3C] uppercase">Clear Pricing</span>
-                <h2 class="text-2xl md:text-3xl font-semibold text-slate-900 mt-2 tracking-tight text-serif">費用のご案内</h2>
-                <p class="text-slate-500 text-sm mt-3 font-light">中間手数料を極限までカットした、オープンで明瞭な一括パッケージ費用</p>
-                <div class="w-12 h-[2px] bg-[#D55F3C] mx-auto mt-4"></div>
-            </div>
--->
-            <!-- Price Cards Grid -->
-         <!--
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
-    -->
-                <!-- USA Plan -->
-             <!--
-                <div class="border-2 border-brand-emerald rounded-[2.5rem] p-8 md:p-10 relative overflow-hidden bg-white shadow-xl flex flex-col justify-between">
-                    <div class="absolute top-0 right-0 bg-brand-emerald text-white px-5 py-2 rounded-bl-2xl text-[10px] font-bold tracking-widest uppercase">Premium</div>
-                    <div class="space-y-6">
-                        <div>
-                            <span class="text-xs text-brand-emerald font-bold tracking-wider uppercase block">United States</span>
-                            <h3 class="text-2xl font-bold text-slate-900 mt-1 text-serif">アメリカ提携機関プラン</h3>
-                        </div>
-                        <div class="space-y-4 border-y border-slate-100 py-6">
-                            <div>
-                                <p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest mb-1">受精胚 1〜4個</p>
-                                <p class="text-4xl font-extrabold text-slate-800">125<span class="text-lg font-normal text-slate-500">万円 <span class="text-xs text-slate-400">(税込)</span></span></p>
-                            </div>
-                            <div>
-                                <p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest mb-1">受精胚 5〜8個</p>
-                                <p class="text-4xl font-extrabold text-slate-800">195<span class="text-lg font-normal text-slate-500">万円 <span class="text-xs text-slate-400">(税込)</span></span></p>
-                            </div>
-                        </div>
-                        <ul class="text-xs space-y-3.5 text-slate-600 font-light">
-                            <li class="flex items-start gap-2">
-                                <span class="text-brand-emerald font-bold">✓</span>
-                                <span>国内集荷・海外往復の特急便輸送費一式</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-brand-emerald font-bold">✓</span>
-                                <span>海外現地での最新NGSゲノム解析費用</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-brand-emerald font-bold">✓</span>
-                                <span>契約同意書などの翻訳および手続き支援</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-brand-emerald font-bold">✓</span>
-                                <span>万が一のための航空貨物輸送保険込み</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-    -->
-                <!-- Ukraine Plan -->
-      <!--
-                <div class="border border-slate-200 rounded-[2.5rem] p-8 md:p-10 relative overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between">
-                    <div class="space-y-6">
-                        <div>
-                            <span class="text-xs text-slate-400 font-bold tracking-wider uppercase block">Ukraine</span>
-                            <h3 class="text-2xl font-bold text-slate-900 mt-1 text-serif">ウクライナ先進医療プラン</h3>
-                        </div>
-                        <div class="space-y-4 border-y border-slate-100 py-6">
-                            <div>
-                                <p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest mb-1">受精胚 1〜4個</p>
-                                <p class="text-4xl font-extrabold text-slate-700">95<span class="text-lg font-normal text-slate-500">万円 <span class="text-xs text-slate-400">(税込)</span></span></p>
-                            </div>
-                            <div>
-                                <p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest mb-1">受精胚 5〜8個</p>
-                                <p class="text-4xl font-extrabold text-slate-700">170<span class="text-lg font-normal text-slate-500">万円 <span class="text-xs text-slate-400">(税込)</span></span></p>
-                            </div>
-                        </div>
-                        <ul class="text-xs space-y-3.5 text-slate-500 font-light">
-                            <li class="flex items-start gap-2">
-                                <span class="text-brand-orange font-bold">✓</span>
-                                <span>最新の培養・ゲノム研究室との強固な提携</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-brand-orange font-bold">✓</span>
-                                <span>コストパフォーマンスを追求した安心ルート</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-brand-orange font-bold">✓</span>
-                                <span>渡航を一切必要としない完全安心代行</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-brand-orange font-bold">✓</span>
-                                <span>専任翻訳・進捗状況ログの完全開示対応</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
--->
-            <!-- Notes -->
-       <!--   
-            <div class="mt-12 max-w-3xl mx-auto p-8 bg-brand-bg rounded-[2rem] border border-sky-100 space-y-3 text-xs text-slate-500 leading-relaxed font-light">
-                <p class="font-bold text-slate-700 text-sm mb-1">料金に関する透明な特記事項:</p>
-                <p>・上記のプラン料金には、日本国内の医療機関における採卵、体外受精、胚凍結、移植治療費等は含まれておりません。各病院へ直接お支払いください。</p>
-                <p>・受精胚が8個を超える場合は、1個につき6万円の追加コーディネート料金がかかります。</p>
-                <p>・受精胚の状態により現地医師の判断でバイオプシー（生検）が実施できなかった胚については、1個につき6万円をご返金いたします（受精胚が総数8個以上検査に進んだ場合に適用）。</p>
-                <p>・為替動向や海外医療機関の料金改定、社会情勢により、予告なくパッケージ価格を変更させていただく場合がございます。</p>
-            </div>
-        </div>
-    </section>
--->
     <!-- Page 7: ETHICS & LEGAL (日本国内指針と法的ステータス) -->
     <section id="ethics" class="py-24 md:py-32 bg-[#FAF8F5] border-y border-slate-100">
         <div class="max-w-4xl mx-auto px-6 lg:px-8">
@@ -721,12 +720,12 @@
                 <div class="grid grid-cols-2 gap-12 text-xs tracking-wider uppercase font-medium">
                     <ul class="space-y-4 text-slate-400">
                         <li><a href="#origin" class="hover:text-white transition">私たちの原点</a></li>
+                        <li><a href="#experience" class="hover:text-white transition">代表の体験談</a></li>
                         <li><a href="#medical" class="hover:text-white transition">着床前診断とは</a></li>
                         <li><a href="#selection" class="hover:text-white transition">海外での選択肢</a></li>
                     </ul>
                     <ul class="space-y-4 text-slate-400">
                         <li><a href="#workflow" class="hover:text-white transition">進行の見える化</a></li>
-                        <li><a href="#price" class="hover:text-white transition">料金プラン</a></li>
                         <li><a href="#ethics" class="hover:text-white transition">日本の運用指針</a></li>
                     </ul>
                 </div>
@@ -739,8 +738,9 @@
         </div>
     </footer>
 
-    <!-- Mobile Menu Script -->
+    <!-- Scripts (Mobile Menu & Tab Switching) -->
     <script>
+        // Mobile Menu
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -748,13 +748,48 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // リンクをクリックしたらメニューを閉じる
         const mobileLinks = mobileMenu.querySelectorAll('a');
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
             });
         });
+
+        // タブ切り替え用のスクリプト（心に寄り添う / ロジカルに知る）
+        function switchTab(type) {
+            const logContent = document.getElementById('content-logical');
+            const emoContent = document.getElementById('content-emotional');
+            const logBtn = document.getElementById('btn-logical');
+            const emoBtn = document.getElementById('btn-emotional');
+
+            if (type === 'emotional') {
+                // コンテンツ表示の切り替え（体験談・葛藤をアクティブ化）
+                emoContent.classList.remove('hidden');
+                setTimeout(() => {
+                    emoContent.classList.add('opacity-100', 'scale-100');
+                    emoContent.classList.remove('opacity-0', 'scale-95');
+                }, 10);
+                logContent.classList.add('hidden', 'opacity-0', 'scale-95');
+                logContent.classList.remove('opacity-100', 'scale-100');
+
+                // ボタンのアクティブ状態の入れ替え（オレンジへ）
+                emoBtn.className = "flex-1 py-3 text-xs md:text-sm font-bold tracking-wider rounded-full transition-all duration-300 bg-white text-brand-orange shadow-sm focus:outline-none flex items-center justify-center gap-2";
+                logBtn.className = "flex-1 py-3 text-xs md:text-sm font-medium tracking-wider rounded-full transition-all duration-300 text-slate-600 hover:text-slate-900 focus:outline-none flex items-center justify-center gap-2";
+            } else {
+                // コンテンツ表示の切り替え（技術・仕組みをアクティブ化）
+                logContent.classList.remove('hidden');
+                setTimeout(() => {
+                    logContent.classList.add('opacity-100', 'scale-100');
+                    logContent.classList.remove('opacity-0', 'scale-95');
+                }, 10);
+                emoContent.classList.add('hidden', 'opacity-0', 'scale-95');
+                emoContent.classList.remove('opacity-100', 'scale-100');
+
+                // ボタンのアクティブ状態の入れ替え（エメラルドへ）
+                logBtn.className = "flex-1 py-3 text-xs md:text-sm font-bold tracking-wider rounded-full transition-all duration-300 bg-white text-brand-emerald shadow-sm focus:outline-none flex items-center justify-center gap-2";
+                emoBtn.className = "flex-1 py-3 text-xs md:text-sm font-medium tracking-wider rounded-full transition-all duration-300 text-slate-600 hover:text-slate-900 focus:outline-none flex items-center justify-center gap-2";
+            }
+        }
     </script>
 
 </body>
