@@ -1,5 +1,5 @@
 name = "pgt-a"
-compatibility_date = "2026-06-26"
+compatibility_date = "2026-06-26"  # ← ここを今日の日付にする
 
 [assets]
 directory = "./"
