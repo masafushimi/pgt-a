@@ -754,7 +754,7 @@
             });
         }
 
-        // --- note記事の自動読み込み・表示機能 ---
+// --- note記事の自動読み込み・表示機能 ---
         document.addEventListener('DOMContentLoaded', () => {
             const noteUsername = 'tane_mayui438'; 
             const rssApiUrl = `https://api.rss2json.com/v1/api.json?rss_url=https://note.com/${noteUsername}/rss`;
@@ -769,10 +769,11 @@
 
                         const articles = data.items.slice(0, 10);
                         articles.forEach(item => {
-                            // 先頭に画像プロキシのURLを合体させ、後ろの「https://」を削除（エンコード）して渡します
+                            // noteの直リンクブロックを回避するため、画像プロキシ（weserv.nl）を経由させてURLを整形
                             const imageUrl = item.thumbnail 
                                 ? `https://images.weserv.nl/?url=${encodeURIComponent(item.thumbnail.replace(/^https?:\/\//, ''))}`
                                 : 'https://placehold.co/600x338/f1f5f9/0b4c38?text=note';
+                                
                             const title = item.title;
                             const linkUrl = item.link;
 
