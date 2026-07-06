@@ -21,8 +21,6 @@ async function updateNote() {
             items = [items];
         }
         
-        console.log(`取得した記事数: ${items.length}件`);
-        
         let cardsHtml = '\n';
         const loopCount = Math.min(items.length, 10);
         
@@ -33,16 +31,13 @@ async function updateNote() {
             const title = item.title;
             const link = item.link;
             
-            // 💡 noteの画像URLをあらゆるパターン（名前空間の有無）から100%確実に抽出するロジック
             let imgUrl = '';
-            
             if (item['media:thumbnail']) {
                 imgUrl = item['media:thumbnail']['#text'] || item['media:thumbnail']['@_url'] || item['media:thumbnail'];
             } else if (item['thumbnail']) {
                 imgUrl = item['thumbnail']['#text'] || item['thumbnail']['@_url'] || item['thumbnail'];
             }
             
-            // 万が一上記で取れなかった場合、本文(description)のimgタグから抽出
             if (!imgUrl || typeof imgUrl !== 'string') {
                 const description = item.description || '';
                 const imgMatch = description.match(/<img[^>]+src="([^">]+)"/);
@@ -51,12 +46,9 @@ async function updateNote() {
                 }
             }
             
-            // それでもダメな場合の最終フォールバック
             if (!imgUrl || typeof imgUrl !== 'string') {
                 imgUrl = 'https://placehold.co/600x338/f1f5f9/0b4c38?text=note';
             }
-
-            console.log(`記事[${i+1}]: ${title} -> 画像: ${imgUrl}`);
 
             cardsHtml += `            <a href="${link}" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 w-[280px] md:w-[340px] bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-slate-100 transition duration-300 snap-start group">
                 <div class="aspect-[16/9] w-full bg-slate-100 overflow-hidden relative">
@@ -75,16 +67,20 @@ async function updateNote() {
         const startTag = '';
         const endTag = '';
         
+        // 💡 【超重要：絶対の安全ガード】
+        // 手動で直したきれいなHTMLがActions側に反映されていない（タグが見つからない）場合、
+        // ファイルの書き換えを一切行わず、プロセスを「意図的なエラー(1)」として即座に終了させます。
+        // これにより、最上部にねじ込まれるバグが100%発生しなくなります。
         if (!html.includes(startTag) || !html.includes(endTag)) {
-            console.error('【エラー】index.html 内に または がありません。');
-            process.exit(1);
+            console.error('【安全ガード作動】index.html 内に目印タグが見つかりません。ファイルを破壊しないよう処理を中断します。');
+            process.exit(1); 
         }
         
         const regex = new RegExp(`${startTag}[\\s\\S]*?${endTag}`);
         const newHtml = html.replace(regex, `${startTag}${cardsHtml}${endTag}`);
         
         fs.writeFileSync('index.html', newHtml, 'utf8');
-        console.log('--- index.html の書き換えに成功しました！ ---');
+        console.log('--- index.html の書き換えに正常成功しました！ ---');
     } catch (error) {
         console.error('更新失敗:', error);
         process.exit(1);
