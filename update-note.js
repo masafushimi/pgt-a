@@ -10,7 +10,6 @@ async function updateNote() {
         const parser = new XMLParser({ ignoreAttributes: false });
         const jsonObj = parser.parse(xmlText);
         
-        // 記事が1件だけか複数件かで配列の構造が変わる対策
         let items = jsonObj.rss.channel.item;
         if (!Array.isArray(items)) {
             items = [items];
@@ -47,16 +46,15 @@ async function updateNote() {
         const startTag = '';
         const endTag = '';
         
-        // 💡 密着していても、改行が入っていても100%確実に特定できるように検索処理を強化
+        // 💡 【超重要】古いバグったHTMLを読み込んでしまった場合、処理を強制終了させてファイルを絶対に破壊させないガード
         if (!html.includes(startTag) || !html.includes(endTag)) {
-            console.error('エラー: HTML内に NOTE_START または NOTE_END が見つかりません。');
-            process.exit(1);
+            console.error('【重要エラー】HTML内に正しい目印タグ（NOTE_START / NOTE_END）が見つかりません。安全のため処理を中止します。index.htmlをリセットしてください。');
+            process.exit(1); 
         }
         
         const startIndex = html.indexOf(startTag) + startTag.length;
         const endIndex = html.indexOf(endTag);
         
-        // タグの間の文字（古い記事カードなど）をそっくり入れ替える
         const newHtml = html.substring(0, startIndex) + cardsHtml + html.substring(endIndex);
         
         fs.writeFileSync('index.html', newHtml, 'utf8');
