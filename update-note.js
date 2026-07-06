@@ -4,16 +4,24 @@ const { XMLParser } = require('fast-xml-parser');
 async function updateNote() {
     const noteUsername = 'tane_mayui438';
     try {
+        console.log('--- note RSSの取得を開始します ---');
         const response = await fetch(`https://note.com/${noteUsername}/rss`);
         const xmlText = await response.text();
         
         const parser = new XMLParser({ ignoreAttributes: false });
         const jsonObj = parser.parse(xmlText);
         
-        let items = jsonObj.rss.channel.item;
+        let items = jsonObj.rss?.channel?.item;
+        if (!items) {
+            console.error('RSSのitem要素が見つかりません。');
+            process.exit(1);
+        }
+        
         if (!Array.isArray(items)) {
             items = [items];
         }
+        
+        console.log(`取得した記事数: ${items.length}件`);
         
         let cardsHtml = '\n';
         const loopCount = Math.min(items.length, 10);
@@ -24,10 +32,31 @@ async function updateNote() {
             
             const title = item.title;
             const link = item.link;
-            let imgUrl = item['media:thumbnail']?.['#text'] || item['thumbnail'] || 'https://placehold.co/600x338/f1f5f9/0b4c38?text=note';
-            if (typeof imgUrl === 'object') {
-                imgUrl = imgUrl['@_url'] || 'https://placehold.co/600x338/f1f5f9/0b4c38?text=note';
+            
+            // 💡 noteの画像URLをあらゆるパターン（名前空間の有無）から100%確実に抽出するロジック
+            let imgUrl = '';
+            
+            if (item['media:thumbnail']) {
+                imgUrl = item['media:thumbnail']['#text'] || item['media:thumbnail']['@_url'] || item['media:thumbnail'];
+            } else if (item['thumbnail']) {
+                imgUrl = item['thumbnail']['#text'] || item['thumbnail']['@_url'] || item['thumbnail'];
             }
+            
+            // 万が一上記で取れなかった場合、本文(description)のimgタグから抽出
+            if (!imgUrl || typeof imgUrl !== 'string') {
+                const description = item.description || '';
+                const imgMatch = description.match(/<img[^>]+src="([^">]+)"/);
+                if (imgMatch && imgMatch[1]) {
+                    imgUrl = imgMatch[1];
+                }
+            }
+            
+            // それでもダメな場合の最終フォールバック
+            if (!imgUrl || typeof imgUrl !== 'string') {
+                imgUrl = 'https://placehold.co/600x338/f1f5f9/0b4c38?text=note';
+            }
+
+            console.log(`記事[${i+1}]: ${title} -> 画像: ${imgUrl}`);
 
             cardsHtml += `            <a href="${link}" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 w-[280px] md:w-[340px] bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-slate-100 transition duration-300 snap-start group">
                 <div class="aspect-[16/9] w-full bg-slate-100 overflow-hidden relative">
@@ -46,18 +75,16 @@ async function updateNote() {
         const startTag = '';
         const endTag = '';
         
-        // 💡 【ここを完全に修正】確実に存在チェックを行い、正規表現で安全に中身だけを置換する
         if (!html.includes(startTag) || !html.includes(endTag)) {
-            console.error('【重要エラー】HTML内にコメントタグ（NOTE_START / NOTE_END）が見つからないため、処理を安全にスキップしました。');
+            console.error('【エラー】index.html 内に または がありません。');
             process.exit(1);
         }
         
-        // タグの間に何があろうが（あるいは密着していようが）、その空間だけを正確に置き換える
         const regex = new RegExp(`${startTag}[\\s\\S]*?${endTag}`);
         const newHtml = html.replace(regex, `${startTag}${cardsHtml}${endTag}`);
         
         fs.writeFileSync('index.html', newHtml, 'utf8');
-        console.log('note記事のスライダー更新に成功しました！');
+        console.log('--- index.html の書き換えに成功しました！ ---');
     } catch (error) {
         console.error('更新失敗:', error);
         process.exit(1);
