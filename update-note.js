@@ -46,16 +46,15 @@ async function updateNote() {
         const startTag = '';
         const endTag = '';
         
-        // 💡 【超重要】古いバグったHTMLを読み込んでしまった場合、処理を強制終了させてファイルを絶対に破壊させないガード
+        // 💡 【ここを完全に修正】確実に存在チェックを行い、正規表現で安全に中身だけを置換する
         if (!html.includes(startTag) || !html.includes(endTag)) {
-            console.error('【重要エラー】HTML内に正しい目印タグ（NOTE_START / NOTE_END）が見つかりません。安全のため処理を中止します。index.htmlをリセットしてください。');
-            process.exit(1); 
+            console.error('【重要エラー】HTML内にコメントタグ（NOTE_START / NOTE_END）が見つからないため、処理を安全にスキップしました。');
+            process.exit(1);
         }
         
-        const startIndex = html.indexOf(startTag) + startTag.length;
-        const endIndex = html.indexOf(endTag);
-        
-        const newHtml = html.substring(0, startIndex) + cardsHtml + html.substring(endIndex);
+        // タグの間に何があろうが（あるいは密着していようが）、その空間だけを正確に置き換える
+        const regex = new RegExp(`${startTag}[\\s\\S]*?${endTag}`);
+        const newHtml = html.replace(regex, `${startTag}${cardsHtml}${endTag}`);
         
         fs.writeFileSync('index.html', newHtml, 'utf8');
         console.log('note記事のスライダー更新に成功しました！');
