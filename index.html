@@ -14,14 +14,14 @@
                 extend: {
                     colors: {
                         brand: {
-                            emerald: '#0B4C38',
+                            emerald: '#0B4C38', // 信頼のエメラルドグリーン
                             'emerald-light': '#115C44',
-                            orange: '#E6724E',
+                            orange: '#E6724E',  // 寄り添いのテラコッタオレンジ
                             'orange-light': '#F38E6C',
-                            bg: '#FBFBFC',
-                            line: '#06C755',
+                            bg: '#FBFBFC',      // クリーンで明るいオフホワイト
+                            line: '#06C755',    // LINE公式の正確なブランドカラー
                             lineHover: '#05B34C',
-                            tealBtn: '#126A4F'
+                            tealBtn: '#126A4F'  // オンラインカウンセリング用ティール
                         }
                     },
                     fontFamily: {
@@ -34,22 +34,51 @@
         }
     </script>
     <style>
-        body { font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.05em; }
-        .text-serif { font-family: 'Noto Serif JP', serif; }
-        .cinzel-display { font-family: 'Cinzel', serif; }
-        .warm-circle-bg { background: radial-gradient(circle, rgba(254,244,236,1) 0%, rgba(253,230,212,0.9) 75%, rgba(248,206,188,0.4) 100%); }
-        html { scroll-behavior: smooth; }
-        @keyframes soft-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
-        .animate-soft-bounce { animation: soft-bounce 3.2s ease-in-out infinite; }
-        .blend-multiply { mix-blend-mode: multiply; }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            letter-spacing: 0.05em;
+        }
+        .text-serif {
+            font-family: 'Noto Serif JP', serif;
+        }
+        .cinzel-display {
+            font-family: 'Cinzel', serif;
+        }
+        /* 和紙・テクスチャ風の柔らかな円形バッジ用グラデーション */
+        .warm-circle-bg {
+            background: radial-gradient(circle, rgba(254,244,236,1) 0%, rgba(253,230,212,0.9) 75%, rgba(248,206,188,0.4) 100%);
+        }
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* 微細な浮遊アニメーション */
+        @keyframes soft-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+        .animate-soft-bounce {
+            animation: soft-bounce 3.2s ease-in-out infinite;
+        }
+        /* 女性画像の背景の「薄い影」を完全に透過し、LP背景と同化させる乗算処理 */
+        .blend-multiply {
+            mix-blend-mode: multiply;
+        }
+        /* 左・下・右の境界線を完璧に消し去るためのグラデーションマスク */
         .smooth-mask {
-            mask-image: linear-gradient(to left, black 65%, transparent 100%), linear-gradient(to bottom, black 80%, transparent 100%);
+            mask-image: linear-gradient(to left, black 65%, transparent 100%), 
+                        linear-gradient(to bottom, black 80%, transparent 100%);
             mask-composite: intersect;
-            -webkit-mask-image: -webkit-linear-gradient(right, black 65%, transparent 100%), -webkit-linear-gradient(top, black 80%, transparent 100%);
+            -webkit-mask-image: -webkit-linear-gradient(right, black 65%, transparent 100%), 
+                                 -webkit-linear-gradient(top, black 80%, transparent 100%);
             -webkit-mask-composite: source-in;
         }
+        /* スクロールバーを非表示にするスタイル */
         .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 <body class="text-slate-800 bg-brand-bg antialiased">
@@ -58,7 +87,7 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <a href="#" class="flex items-center">
-                    <img src="logo.png" alt="一般社団法人 受精卵着床前診断相談窓口 PGT-A相談窓口" class="h-12 w-auto object-contain">
+                    <img src="logo.png" alt="一般社団法人 受精卵着床前診断相談窓口 PGT-A相談窓口" class="h-12 md:h-14 w-auto object-contain">
                 </a>
                 <div class="hidden lg:flex items-center space-x-8 text-xs tracking-widest font-medium uppercase text-slate-600">
                     <a href="#origin" class="hover:text-brand-orange transition py-2">私たちの原点</a>
@@ -86,32 +115,70 @@
 
     <header class="pt-24 lg:pt-28 pb-16 bg-[#FBFBFC] overflow-hidden relative min-h-[640px] flex items-center">
         <div class="absolute left-[-20px] top-[15%] w-48 h-48 opacity-[0.06] pointer-events-none transform -rotate-12 select-none">
-            <svg class="w-full h-full text-slate-900" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><path d="M10 80 C 35 75, 55 55, 80 15 C 70 30, 50 55, 35 65 C 25 72, 15 78, 10 80 Z" /></svg>
+            <svg class="w-full h-full text-slate-900" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
+                <path d="M10 80 C 35 75, 55 55, 80 15 C 70 30, 50 55, 35 65 C 25 72, 15 78, 10 80 Z" />
+            </svg>
         </div>
         <div class="absolute right-[-40px] bottom-[5%] w-64 h-64 opacity-[0.06] pointer-events-none transform rotate-[40deg] select-none">
-            <svg class="w-full h-full text-slate-900" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><path d="M10 80 C 30 70, 50 50, 80 15 C 75 25, 60 45, 45 55 C 35 62, 25 72, 10 80 Z" /></svg>
+            <svg class="w-full h-full text-slate-900" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
+                <path d="M10 80 C 30 70, 50 50, 80 15 C 75 25, 60 45, 45 55 C 35 62, 25 72, 10 80 Z" />
+            </svg>
         </div>
+
         <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full">
             <div class="grid lg:grid-cols-12 gap-12 lg:gap-4 items-center">
                 <div class="lg:col-span-7 text-left space-y-7 z-10">
                     <div class="space-y-4">
-                        <p class="text-brand-orange text-[13px] md:text-sm font-semibold tracking-[0.2em] text-serif">何度も治療を続けているあなたへ</p>
-                        <h1 class="text-3xl md:text-[2.5rem] font-bold tracking-normal text-slate-900 text-serif leading-[1.35] md:leading-[1.45]">何度も頑張っているのに、<br>なぜうまくいかないのだろう。</h1>
-                        <p class="text-sm md:text-[14.5px] font-medium tracking-normal text-slate-500 text-serif leading-relaxed">流産、体外受精の失敗、2人目不妊、産み分け──<br class="hidden md:block">その悩みに、まだ知らない選択肢があるかもしれません。</p>
+                        <p class="text-brand-orange text-[13px] md:text-sm font-semibold tracking-[0.2em] text-serif">
+                            何度も治療を続けているあなたへ
+                        </p>
+                        <h1 class="text-3xl md:text-[2.5rem] font-bold tracking-normal text-slate-900 text-serif leading-[1.35] md:leading-[1.45]">
+                            何度も頑張っているのに、<br>
+                            なぜうまくいかないのだろう。
+                        </h1>
+                        <p class="text-sm md:text-[14.5px] font-medium tracking-normal text-slate-500 text-serif leading-relaxed">
+                            流産、体外受精の失敗、2人目不妊、産み分け──<br class="hidden md:block">
+                            その悩みに、まだ知らない選択肢があるかもしれません。
+                        </p>
                     </div>
+
                     <div class="bg-white/80 backdrop-blur-md border border-slate-100 rounded-[1.8rem] p-6 md:p-7 space-y-4 shadow-xl shadow-slate-100/50 max-w-[620px]">
                         <p class="text-slate-900 font-bold text-[13.5px] flex items-center gap-2 border-b border-slate-100 pb-3">
                             <span class="bg-[#D55F3C] text-white p-1 rounded-md flex items-center justify-center">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                            </span>あなたの悩みから探す
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                </svg>
+                            </span>
+                            あなたの悩みから探す
                         </p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6">
-                            <div class="flex items-center gap-3 cursor-default group"><div class="flex-shrink-0 w-5 h-5 border-2 border-[#E6724E]/80 rounded flex items-center justify-center bg-orange-50/50 group-hover:bg-[#E6724E] group-hover:border-[#E6724E] transition-colors"><svg class="w-3 h-3 text-[#E6724E] group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><span class="text-slate-700 font-medium text-xs md:text-[13.5px]">流産を繰り返している</span></div>
-                            <div class="flex items-center gap-3 cursor-default group"><div class="flex-shrink-0 w-5 h-5 border-2 border-[#E6724E]/80 rounded flex items-center justify-center bg-orange-50/50 group-hover:bg-[#E6724E] group-hover:border-[#E6724E] transition-colors"><svg class="w-3 h-3 text-[#E6724E] group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><span class="text-slate-700 font-medium text-xs md:text-[13.5px]">胚移植が何度もうまくいかない</span></div>
-                            <div class="flex items-center gap-3 cursor-default group"><div class="flex-shrink-0 w-5 h-5 border-2 border-[#E6724E]/80 rounded flex items-center justify-center bg-orange-50/50 group-hover:bg-[#E6724E] group-hover:border-[#E6724E] transition-colors"><svg class="w-3 h-3 text-[#E6724E] group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><span class="text-slate-700 font-medium text-xs md:text-[13.5px]">2人目が授からない</span></div>
-                            <div class="flex items-center gap-3 cursor-default group"><div class="flex-shrink-0 w-5 h-5 border-2 border-[#E6724E]/80 rounded flex items-center justify-center bg-orange-50/50 group-hover:bg-[#E6724E] group-hover:border-[#E6724E] transition-colors"><svg class="w-3 h-3 text-[#E6724E] group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><span class="text-slate-700 font-medium text-xs md:text-[13.5px]">産み分けを諦めかけている</span></div>
+                            <div class="flex items-center gap-3 cursor-default group">
+                                <div class="flex-shrink-0 w-5 h-5 border-2 border-[#E6724E]/80 rounded flex items-center justify-center bg-orange-50/50 group-hover:bg-[#E6724E] group-hover:border-[#E6724E] transition-colors">
+                                    <svg class="w-3 h-3 text-[#E6724E] group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                </div>
+                                <span class="text-slate-700 font-medium text-xs md:text-[13.5px]">流産を繰り返している</span>
+                            </div>
+                            <div class="flex items-center gap-3 cursor-default group">
+                                <div class="flex-shrink-0 w-5 h-5 border-2 border-[#E6724E]/80 rounded flex items-center justify-center bg-orange-50/50 group-hover:bg-[#E6724E] group-hover:border-[#E6724E] transition-colors">
+                                    <svg class="w-3 h-3 text-[#E6724E] group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                </div>
+                                <span class="text-slate-700 font-medium text-xs md:text-[13.5px]">胚移植が何度もうまくいかない</span>
+                            </div>
+                            <div class="flex items-center gap-3 cursor-default group">
+                                <div class="flex-shrink-0 w-5 h-5 border-2 border-[#E6724E]/80 rounded flex items-center justify-center bg-orange-50/50 group-hover:bg-[#E6724E] group-hover:border-[#E6724E] transition-colors">
+                                    <svg class="w-3 h-3 text-[#E6724E] group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                </div>
+                                <span class="text-slate-700 font-medium text-xs md:text-[13.5px]">2人目が授からない</span>
+                            </div>
+                            <div class="flex items-center gap-3 cursor-default group">
+                                <div class="flex-shrink-0 w-5 h-5 border-2 border-[#E6724E]/80 rounded flex items-center justify-center bg-orange-50/50 group-hover:bg-[#E6724E] group-hover:border-[#E6724E] transition-colors">
+                                    <svg class="w-3 h-3 text-[#E6724E] group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                </div>
+                                <span class="text-slate-700 font-medium text-xs md:text-[13.5px]">産み分けを諦めかけている</span>
+                            </div>
                         </div>
                     </div>
+
                     <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-5 pt-2">
                         <a href="https://line.me/R/ti/p/@562mdyqh" class="group relative flex items-center justify-center bg-[#06C755] hover:bg-[#05B34C] text-white px-8 py-5 rounded-full font-bold tracking-widest transition-all duration-300 text-center shadow-lg shadow-[#06C755]/20 min-w-[300px]">
                             <div class="flex items-center gap-3">
@@ -119,31 +186,48 @@
                                     <circle cx="16" cy="16" r="16" fill="white"/>
                                     <path d="M25 15.063C25 10.892 20.97 7.5 16 7.5C11.03 7.5 7 10.892 7 15.063C7 17.324 8.192 19.351 10.123 20.678C9.689 22.227 9.07 24.314 9.014 24.512C8.947 24.747 9.098 24.744 9.198 24.678C9.328 24.593 14.188 21.36 15.438 20.505C15.624 20.518 15.811 20.526 16 20.526C20.97 20.526 25 17.134 25 15.063Z" fill="#06C755"/>
                                     <path d="M11.693 12.352V16.324H13.629C13.882 16.324 14.088 16.118 14.088 15.865C14.088 15.612 13.882 15.406 13.629 15.406H12.611V12.352C12.611 12.099 12.405 11.893 12.152 11.893C11.899 11.893 11.693 12.099 11.693 12.352ZM15.462 12.352V16.324H13.629C13.882 16.324 14.088 16.118 14.088 15.865C14.088 15.612 13.882 15.406 13.629 15.406H12.611V12.352C12.611 12.099 12.405 11.893 12.152 11.893C11.899 11.893 11.693 12.099 11.693 12.352ZM20.151 12.352V16.324H18.215V12.352C18.215 12.099 18.009 11.893 17.756 11.893C17.503 11.893 17.297 12.099 17.297 12.352V16.324C17.297 16.577 17.503 16.783 17.756 16.783H20.151C20.404 16.783 20.61 16.577 20.61 16.324V12.352C20.61 12.099 20.404 11.893 20.151 11.893C19.898 11.893 19.692 12.099 19.692 12.352H20.151ZM24.032 12.352V14.153L22.259 11.956C22.164 11.8 22.022 11.8 21.879 11.821C21.737 11.842 21.614 11.939 21.565 12.073C21.543 12.133 21.533 12.197 21.533 12.261V16.324C21.533 16.577 21.739 16.783 21.992 16.783C22.245 16.783 22.451 16.577 22.451 16.324V14.523L24.224 16.72C24.346 16.87 24.544 16.92 24.717 16.853C24.891 16.787 25 16.613 25 16.427V12.352C25 12.099 24.794 11.893 24.541 11.893C24.288 11.893 24.082 12.099 24.082 12.352H24.032Z"/>
-                                </div>
+                                </svg>
                                 <div class="text-left leading-tight">
                                     <p class="text-[10px] opacity-90 font-medium">登録無料・24時間受付</p>
                                     <p class="text-lg">LINEで相談してみる</p>
                                 </div>
                             </div>
-                            <span class="ml-4 transform group-hover:translate-x-1 transition-transform duration-300 opacity-80"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></span>
+                            <span class="ml-4 transform group-hover:translate-x-1 transition-transform duration-300 opacity-80">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                            </span>
                         </a>
+
                         <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3zyKdsYPv0_ILEwvvaCHXo2cdLUBnYd1W6LnzegmzfmrnqHn4R8PxVjlYtJqSK_2Ie2KEhGhrS" class="group flex items-center justify-center gap-3 bg-brand-emerald text-white px-8 py-5 rounded-full font-bold tracking-widest transition-all duration-300 text-center shadow-lg shadow-brand-emerald/10 min-w-[280px] hover:bg-brand-emerald-light">
                             <svg class="w-11 h-11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
                             <span class="text-base">オンラインカウンセリング</span>
                         </a>
                     </div>
+
                     <div class="pt-2 flex flex-wrap gap-2.5 text-[11px] font-semibold text-slate-500">
-                        <span class="flex items-center gap-1.5 bg-white px-3.5 py-1.5 rounded-full shadow-sm border border-slate-100"><span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> 初診・相談無料</span>
-                        <span class="flex items-center gap-1.5 bg-white px-3.5 py-1.5 rounded-full shadow-sm border border-slate-100"><span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> じっくり個別対応</span>
-                        <span class="flex items-center gap-1.5 bg-white px-3.5 py-1.5 rounded-full shadow-sm border border-slate-100"><span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> 無理な勧誘なし</span>
+                        <span class="flex items-center gap-1.5 bg-white px-3.5 py-1.5 rounded-full shadow-sm border border-slate-100">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> 初診・相談無料
+                        </span>
+                        <span class="flex items-center gap-1.5 bg-white px-3.5 py-1.5 rounded-full shadow-sm border border-slate-100">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> じっくり個別対応
+                        </span>
+                        <span class="flex items-center gap-1.5 bg-white px-3.5 py-1.5 rounded-full shadow-sm border border-slate-100">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> 無理な勧誘なし
+                        </span>
                     </div>
                 </div>
+
                 <div class="lg:col-span-5 flex justify-center relative mt-6 lg:mt-0">
                     <div class="relative w-full max-w-[430px] aspect-[4/5] sm:aspect-square lg:aspect-[4/5] select-none">
-                        <img src="lady.png" alt="親密にお悩みのカウンセリングを行う専門相談員" class="w-full h-full object-cover blend-multiply smooth-mask pointer-events-none" onerror="this.src='https://placehold.co/440x550/ffffff/0b4c38?text=Counselor'">
+                        <img src="lady.png" 
+                             alt="親密にお悩みのカウンセリングを行う専門相談員" 
+                             class="w-full h-full object-cover blend-multiply smooth-mask pointer-events-none" 
+                             onerror="this.src='https://placehold.co/440x550/ffffff/0b4c38?text=Counselor'">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-transparent to-transparent opacity-80 pointer-events-none"></div>
+
                         <div class="absolute bottom-12 right-2 w-34 h-36 rounded-full warm-circle-bg flex items-center justify-center p-4 shadow-xl border border-orange-200/50 animate-soft-bounce z-20 text-center">
-                            <p class="text-xs text-brand-emerald font-semibold leading-relaxed text-serif">あなたの想いに<br>寄り添う<br><span class="text-[#D55F3C] font-bold text-sm">サポート</span>を</p>
+                            <p class="text-xs text-brand-emerald font-semibold leading-relaxed text-serif">
+                                あなたの想いに<br>寄り添う<br><span class="text-[#D55F3C] font-bold text-sm">サポート</span>を
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -159,11 +243,15 @@
                     <h2 class="text-2xl md:text-3xl font-semibold text-slate-900 mt-2 tracking-tight text-serif">私自身が、不妊治療と流産を経験しました</h2>
                     <div class="w-12 h-[2px] bg-[#D55F3C] mx-auto mt-4"></div>
                 </div>
+
                 <div class="mb-16 relative group/slider-container">
                     <p class="text-xs font-bold text-slate-400 mb-4 tracking-wider text-center md:text-left"><a href="https://note.com/tane_mayui438" target="_blank" rel="noopener noreferrer" class="hover:underline">代表の体験談</a> ── 左右にスライドしてご覧いただけます</p>
+                    
                     <div class="relative px-0 md:px-10">
-                        <button id="slidePrev" class="hidden md:flex absolute left-[-20px] top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center bg-white/90 backdrop-blur rounded-full shadow-lg border border-slate-100 text-slate-400 hover:text-brand-orange hover:scale-110 transition-all opacity-0 group-hover/slider-container:opacity-100"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg></button>
-                        
+                        <button id="slidePrev" class="hidden md:flex absolute left-[-20px] top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center bg-white/90 backdrop-blur rounded-full shadow-lg border border-slate-100 text-slate-400 hover:text-brand-orange hover:scale-110 transition-all opacity-0 group-hover/slider-container:opacity-100">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+                        </button>
+
                         <div id="noteSlider" class="flex overflow-x-auto gap-6 pb-6 scrollbar-hide snap-x snap-mandatory scroll-smooth" style="-webkit-overflow-scrolling: touch;">
                             
                             <a href="https://note.com/tane_mayui438/n/n20e1342e287e" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 w-[280px] md:w-[340px] bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-slate-100 transition duration-300 snap-start group">
@@ -188,38 +276,308 @@
 
                         </div>
 
-                        <button id="slideNext" class="hidden md:flex absolute right-[-20px] top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center bg-white/90 backdrop-blur rounded-full shadow-lg border border-slate-100 text-slate-400 hover:text-brand-orange hover:scale-110 transition-all opacity-0 group-hover/slider-container:opacity-100"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></button>
+                        <button id="slideNext" class="hidden md:flex absolute right-[-20px] top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center bg-white/90 backdrop-blur rounded-full shadow-lg border border-slate-100 text-slate-400 hover:text-brand-orange hover:scale-110 transition-all opacity-0 group-hover/slider-container:opacity-100">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+                        </button>
                     </div>
                 </div>
+
                 <div class="space-y-8 text-slate-600 leading-relaxed font-light text-base md:text-lg">
-                    <p class="text-serif text-slate-800 font-medium text-lg leading-loose border-l-4 border-brand-emerald/30 pl-4 py-1">流産を繰り返し、言葉にできない喪失感に何度も襲われたとき、当事者である女性の心身にかかる負担は限界を迎えます。すがるような想いで視野に入ったのが、海外で行われている「着床前診断（PGT）」という科学的解決策でした。</p>
-                    <p>しかし、そこで私たちを待っていたのは「医療以外の領域に潜む構造的な闇」でした。仲介するエージェントの情報、料金、プロセスが完全に不透明であり、大切な生命の萌芽が今どこで、どのように扱われているのかすらわからない。そんな不安が心身をさらに削っていきました。</p>
+                    <p class="text-serif text-slate-800 font-medium text-lg leading-loose border-l-4 border-brand-emerald/30 pl-4 py-1">
+                        流産を繰り返し、言葉にできない喪失感に何度も襲われたとき、当事者である女性の心身にかかる負担は限界を迎えます。
+                        すがるような想いで視野に入ったのが、海外で行われている「着床前診断（PGT）」という科学的解決策でした。
+                    </p>
+                    <p>
+                        しかし、そこで私たちを待っていたのは「医療以外の領域に潜む構造的な闇」でした。
+                        仲介するエージェントの情報、料金、プロセスが完全に不透明であり、大切な生命の萌芽が今どこで、どのように扱われているのかすらわからない。そんな不安が心身をさらに削っていきました。
+                    </p>
+
                     <div class="grid md:grid-cols-2 gap-8 my-16 pt-4">
-                        <div class="bg-brand-bg p-8 rounded-3xl border border-slate-100 shadow-sm relative overflow-hidden group hover:shadow-md transition duration-300"><div class="absolute top-0 left-0 w-full h-[3px] bg-brand-emerald"></div><span class="text-[10px] uppercase tracking-wider text-brand-emerald font-bold">構造적課題 01</span><h3 class="text-lg font-bold text-slate-900 mt-2 mb-4">当事者に立ちはだかる「情報の格差」</h3><p class="text-sm leading-relaxed text-slate-500 font-light">日本の厳しい規制 of 影で、海外の仲介エージェントの情報は非常に不透明でした。生殖細胞が「いつ」「どこで」「どのような管理下で」置かれているのかが当事者に一切見えず、常に疑心暗鬼と恐怖がつきまといます。</p></div>
-                        <div class="bg-brand-bg p-8 rounded-3xl border border-slate-100 shadow-sm relative overflow-hidden group hover:shadow-md transition duration-300"><div class="absolute top-0 left-0 w-full h-[3px] bg-brand-orange"></div><span class="text-[10px] uppercase tracking-wider text-brand-orange font-bold">構造的課題 02</span><h3 class="text-lg font-bold text-slate-900 mt-2 mb-4">契約関係の不透明さと消滅トラブル</h3><p class="text-sm leading-relaxed text-slate-500 font-light">海外のクリニックとの実質的な連絡体制は仲介会社に一任され、何が本当なのか見分ける術はありませんでした。私たちは実際に法的なトラブル、精度的な問題、そして仲介会社を相手取った裁判まで身を以て経験しました。</p></div>
+                        <div class="bg-brand-bg p-8 rounded-3xl border border-slate-100 shadow-sm relative overflow-hidden group hover:shadow-md transition duration-300">
+                            <div class="absolute top-0 left-0 w-full h-[3px] bg-brand-emerald"></div>
+                            <span class="text-[10px] uppercase tracking-wider text-brand-emerald font-bold">構造적課題 01</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2 mb-4">当事者に立ちはだかる「情報の格差」</h3>
+                            <p class="text-sm leading-relaxed text-slate-500 font-light">
+                                日本の厳しい規制の影で、海外の仲介エージェントの情報は非常に不透明でした。生殖細胞が「いつ」「どこで」「どのような管理下で」置かれているのかが当事者に一切見えず、常に疑心暗鬼と恐怖がつきまといます。
+                            </p>
+                        </div>
+
+                        <div class="bg-brand-bg p-8 rounded-3xl border border-slate-100 shadow-sm relative overflow-hidden group hover:shadow-md transition duration-300">
+                            <div class="absolute top-0 left-0 w-full h-[3px] bg-brand-orange"></div>
+                            <span class="text-[10px] uppercase tracking-wider text-brand-orange font-bold">構造的課題 02</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2 mb-4">契約関係の不透明さと消滅トラブル</h3>
+                            <p class="text-sm leading-relaxed text-slate-500 font-light">
+                                海外のクリニックとの実質的な連絡体制は仲介会社に一任され、何が本当なのか見分ける術はありませんでした。私たちは実際に法的なトラブル、精度的な問題、そして仲介会社を相手取った裁判まで身を以て経験しました。
+                            </p>
+                        </div>
                     </div>
+
                     <div class="p-8 bg-brand-emerald/5 rounded-3xl border border-brand-emerald/10 space-y-4 my-10 text-slate-700">
-                        <p class="font-bold text-brand-emerald text-base md:text-lg text-serif leading-relaxed">「生殖医療の進歩自体が希望であっても、そのプロセスに透明性（見える化）がなければ、当事者の精神は崩壊してしまう」</p>
-                        <p class="text-sm leading-relaxed text-slate-600 font-light">一般社団法人受精卵着床前診断(PGT-A)相談窓口は、単なる海外仲介組織ではありません。高額な費用、不当な情報の遮断、法的闘争のすべての苦痛を当事者として経験したからこそ、同じ痛みを他の誰にも味あわせないための「最も誠実な伴走者」として誕生しました。</p>
+                        <p class="font-bold text-brand-emerald text-base md:text-lg text-serif leading-relaxed">
+                            「生殖医療の進歩自体が希望であっても、そのプロセスに透明性（見える化）がなければ、当事者の精神は崩壊してしまう」
+                        </p>
+                        <p class="text-sm leading-relaxed text-slate-600 font-light">
+                            一般社団法人受精卵着床前診断(PGT-A)相談窓口は、単なる海外仲介組織ではありません。高額な費用、不当な情報の遮断、法的闘争のすべての苦痛を当事者として経験したからこそ、同じ痛みを他の誰にも味あわせないための「最も誠実な伴走者」として誕生しました。
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="medical" class="py-24 md:py-32 bg-[#FAF8F5] border-y border-slate-100"><div class="max-w-7xl mx-auto px-6 lg:px-8"><div class="text-center mb-16"><span class="text-xs font-bold tracking-widest text-brand-emerald uppercase">Scientific Analysis</span><h2 class="text-2xl md:text-3xl font-semibold text-slate-900 mt-2 tracking-tight text-serif">着床前遺伝学的検査（PGT）とは</h2><p class="text-slate-500 text-sm mt-3 font-light">科学的根拠に基づき、胚移植前の遺伝情報を極めて精緻に解析します</p><div class="w-12 h-[2px] bg-brand-emerald mx-auto mt-4"></div></div><div class="grid lg:grid-cols-3 gap-8"><div class="bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-slate-100"><div class="space-y-6"><div class="w-12 h-12 rounded-xl bg-brand-emerald/5 text-brand-emerald flex items-center justify-center font-bold text-lg">A</div><h3 class="text-xl font-bold text-slate-900 text-serif">染色体の異数性を確認する<br><span class="text-brand-orange text-sm font-sans tracking-normal">(PGT-A)</span></h3><p class="text-sm text-slate-500 leading-relaxed font-light">受精胚から細胞を数個取り出し、ゲノム解析を行うことで、常染色体および性染色体の数の異常（異数性）を網羅的に調べます。胚移植の失敗や、初期流産の大きな原因である染色体異常を事前に把握し、流産回避と移植成功率向上を図ります。</p></div></div><div class="bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-slate-100"><div class="space-y-6"><div class="w-12 h-12 rounded-xl bg-brand-orange/5 text-brand-orange flex items-center justify-center font-bold text-lg">M</div><h3 class="text-xl font-bold text-slate-900 text-serif">特定の単一遺伝子疾患を調べる<br><span class="text-brand-emerald text-sm font-sans tracking-normal">(PGT-M)</span></h3><p class="text-sm text-slate-500 leading-relaxed font-light">ご夫婦のいずれかが特定の遺伝性疾患（単一遺伝子異常）の保因者である場合などに、その原因となる遺伝子の変異がないかを解析します。次世代に重篤な遺伝性疾患を継承する精神的不安を解消するための極めて個別性の高い検査です。</p></div></div><div class="bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-slate-100"><div class="space-y-6"><div class="w-12 h-12 rounded-xl bg-brand-emerald/5 text-brand-emerald flex items-center justify-center font-bold text-lg">N</div>h3 class="text-xl font-bold text-slate-900 text-serif">最新ゲノム解析「NGS法」<br><span class="text-brand-orange text-sm font-sans tracking-normal">(次世代シーケンシング)</span></h3><p class="text-sm text-slate-500 leading-relaxed font-light">従来のFISH法やaCGH法と比較して,飛躍的に分析精度の高い次世代シーケンサー（NGS）技術を採用。解像度の向上により、これまで発見が困難であった一部分 of 細胞に異常が混在する「モザイク胚」の判定も行えます。</p></div></div></div><div class="mt-16 bg-white rounded-[2.5rem] overflow-hidden shadow-md border border-slate-100 flex flex-col lg:flex-row"><div class="lg:w-1/2 relative h-64 lg:h-auto min-h-[280px]"><img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&q=80&w=1000" alt="顕微鏡や最先端の解析機が並ぶ高度生殖医療研究施設の内観" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/1000x600/0b4c38/ffffff?text=Global+Network'"><div class="absolute inset-0 bg-brand-emerald/10 mix-blend-multiply"></div></div><div class="lg:w-1/2 p-8 md:p-12 flex flex-col justify-center space-y-6"><span class="text-xs font-bold text-brand-orange uppercase tracking-widest">Global Medical Network</span><h3 class="text-xl md:text-2xl font-bold text-slate-900 text-serif">世界最高峰の医療解析機関との堅固なアライアンス</h3><p class="text-sm md:text-base text-slate-600 leading-relaxed font-light">提携先の「Fertility Institute of Hawaii」、アメリカ最高峰の遺伝子検査・解析機関「INVITAE」、不妊医療の先進国ウクライナの「NADIYA研究所」など、世界最高レベルの医師・培養士チームと連携し、揺るぎない精度を提供しています。</p></div></div></div></section>
-        <section id="selection" class="py-24 md:py-32 bg-white overflow-hidden relative"><div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10"><div class="text-center mb-16"><span class="text-xs font-bold tracking-widest text-[#D55F3C] uppercase">Family Planning Options</span><h2 class="text-2xl md:text-3xl font-semibold text-slate-900 mt-2 tracking-tight text-serif">海外における「家族形成の選択肢」として</h2><div class="w-12 h-[2px] bg-[#D55F3C] mx-auto mt-4"></div></div><div class="space-y-8 text-slate-600 leading-relaxed font-light text-base md:text-lg"><p>日本国内の生殖医療ガイドラインのもとでは現在、性別確認のみを目的とした胚移植の選択や情報開示は一切行えません。</p><p>一方で、私たちが探携しているアメリカ合衆国やウクライナといった国際基準の管轄下では、患者様ご夫婦のライフプランに応じた「家族形成の正当な選択肢」として、着床前診断プロセスにおけるすべての染色体（XX/XY）の情報開示が適法かつ一般的に提供されています。</p><div class="p-8 md:p-10 bg-[#FAF7F2] rounded-[2rem] border border-orange-200/40 my-12 space-y-6 relative overflow-hidden"><div class="absolute top-0 right-0 w-24 h-24 bg-brand-orange/5 rounded-full blur-2xl"></div><div class="flex items-center gap-3"><span class="w-2.5 h-2.5 rounded-full bg-brand-orange"></span><h3 class="font-bold text-slate-900 text-lg text-serif">私たちの倫理的スタンス</h3></div><p class="text-slate-700 text-sm md:text-base leading-relaxed font-light space-y-2">私たちは,特定の性別の選択を過度にお勧めしたり推奨することは一切行いません。<br>「どのような構成の家族を築き、どのような人生を歩むのか」という価値観は、国境を越え,何よりも各ご家庭の多様な理念に基づいて選択されるべきだと考えます。<br><br>私たちは、海外の合法的な法整備のもとで生み出された高度な医療情報へのアクセスを安全にサポートし、患者様ご夫婦が十分に理解し、後悔のないご決断ができるよう「情報の透明性」を約束します。</p></div><p class="text-xs text-slate-400 italic">※すべての医学的なデメリットや解析結果のご説明は、現地の有資格の医師による十分なインフォームドコンセントおよび指導のもとで行われます。</p></div></div></section>
-        <section id="workflow" class="py-24 md:py-32 bg-brand-bg border-t border-slate-100"><div class="max-w-7xl mx-auto px-6 lg:px-8"><div class="text-center mb-16"><span class="text-xs font-bold tracking-widest text-brand-emerald uppercase">Process Visualization</span><h2 class="text-2xl md:text-3xl font-semibold text-slate-900 mt-2 tracking-tight text-serif">進行管理の徹底した「見える化」</h2><p class="text-slate-500 text-sm mt-3 font-light">当事者が最も苦しむ不妊治療の「暗箱（ブラックボックス）」を排除する強古な管理フロー</p><div class="w-12 h-[2px] bg-brand-emerald mx-auto mt-4"></div></div><div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative"><div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between relative group"><span class="absolute top-6 right-8 text-4xl font-extrabold text-slate-11 group-hover:text-brand-emerald/10 transition-colors duration-300" aria-hidden="true">01</span><div class="space-y-4 pt-4"><span class="text-[10px] text-brand-emerald font-bold uppercase tracking-wider block">採卵・受精胚凍結</span><h3 class="text-lg font-bold text-slate-900 text-serif">国内提携病院での治療</h3><p class="text-xs text-slate-500 leading-relaxed font-light">日本国内の不妊治療専門クリニックにて、体外受精の治療を行います。生殖細胞が適切に凍結保存され、安全に保管されていることを専門スタッフが確認します。</p></div><div class="mt-8 pt-4 border-t border-slate-100 text-[10px] text-slate-400 flex justify-between items-center"><span>所要目安: 個別周期</span><span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">国内医師判断</span></div></div><div class="bg-white p-8 rounded-[2rem] border border-brand-orange/20 shadow-md flex flex-col justify-between relative group"><span class="absolute top-6 right-8 text-4xl font-extrabold text-brand-orange/10" aria-hidden="true">02</span><div class="space-y-4 pt-4"><span class="text-[10px] text-brand-orange font-bold uppercase tracking-wider block">集荷・特急国際輸送</span><h3 class="text-lg font-bold text-slate-900 text-serif">相談窓口の安心バイオ輸送</h3><p class="text-xs text-slate-500 leading-relaxed font-light">IATA認定 of 特別保冷容器（ドライシッパー）を使用。集荷、税関審査、現地受領に至るまで、24時間トラッキング監視を行いながら極めて安全にハワイやウクライナに配送。</p></div><div class="mt-8 pt-4 border-t border-slate-100 text-[10px] text-slate-400 flex justify-between items-center"><span>所要目安: 約1週間以内</span><span class="bg-brand-orange/10 text-brand-orange px-2 py-0.5 rounded font-bold">全行程可視化</span></div></div><div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between relative group"><span class="absolute top-6 right-8 text-4xl font-extrabold text-slate-11 group-hover:text-brand-emerald/10 transition-colors duration-300" aria-hidden="true">03</span><div class="space-y-4 pt-4"><span class="text-[10px] text-brand-emerald font-bold uppercase tracking-wider block">生検・NGSゲノム解析</span><h3 class="text-lg font-bold text-slate-900 text-serif">海外提携ラボの分析</h3><p class="text-xs text-slate-500 leading-relaxed font-light">提携先の高度生殖医療機関の培養士が生検。最新のNGSゲノム解析を実施し、進行状況は常時システムログとして記録。書類等の不透明さを徹底的に排除。</p></div><div class="mt-8 pt-4 border-t border-slate-100 text-[10px] text-slate-400 flex justify-between items-center"><span>所要目安: 3〜7週間</span><span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">海外ラボ実施</span></div></div><div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between relative group"><span class="absolute top-6 right-8 text-4xl font-extrabold text-slate-11 group-hover:text-brand-emerald/10 transition-colors duration-300" aria-hidden="true">04</span><div class="space-y-4 pt-4"><span class="text-[10px] text-brand-emerald font-bold uppercase tracking-wider block">返送・移植開始</span><h3 class="text-lg font-bold text-slate-900 text-serif">国内移植治療</h3><p class="text-xs text-slate-500 leading-relaxed font-light">解析結果レポート（原本翻訳付き）を開示。安全に日本国内の提携先病院に返送された胚について、主治医と相談のうえ、移植スケジュールに基づき治療を開始します。</p></div><div class="mt-8 pt-4 border-t border-slate-100 text-[10px] text-slate-400 flex justify-between items-center"><span>所要目安: 移植スケジュール別</span><span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">主治医の最終判断</span></div></div></div><div class="mt-12 bg-white border border-slate-100 p-8 rounded-[2rem] shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6"><div class="space-y-2"><h4 class="text-slate-900 font-bold text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>当相談窓口 進行可視化のコミットメント</h4><p class="text-xs text-slate-500 leading-relaxed max-w-3xl font-light">「送金の内訳は正しいか」「胚は現在どこにあるのか」という情報を決してブラックボックスにしません。私たちは現地クリニックが発行する原本書類（請求書・各種同意書など）を日本語翻訳と共に100%患者様へ開示します。</p></div><div class="bg-brand-emerald text-white font-bold px-4 py-2.5 rounded-xl text-xs tracking-wider flex-shrink-0 shadow-sm">すべての不透明さを排除</div></div></div></section>
-        <section id="ethics" class="py-24 md:py-32 bg-[#FAF8F5] border-y border-slate-100"><div class="max-w-4xl mx-auto px-6 lg:px-8"><div class="text-center mb-16"><span class="text-xs font-bold tracking-widest text-brand-emerald uppercase">Ethical Guidelines</span><h2 class="text-2xl md:text-3xl font-semibold text-slate-900 mt-2 tracking-tight text-serif">日本の運用指針と海外における生殖医療法</h2><div class="w-12 h-[2px] bg-brand-emerald mx-auto mt-4"></div></div><div class="space-y-8 text-slate-600 leading-relaxed font-light text-base md:text-lg"><p>日本産科婦人科学会は現在、着床前検査（PGT）について重篤な遺伝性疾患の保因者や反復胚移植不成功,反復流産（習慣流産）の既往がある方など、対象者を限定的に制限する指針を定めて運用しています。</p><p>これにより、多くの方が国内での検査基準を満たせず、苦しい不妊治療や繰り返す流産の恐怖の中で、次のステップに進めずにおられるのが実情です。</p><div class="p-8 md:p-10 bg-white border border-slate-100 rounded-[2rem] shadow-sm space-y-6 my-10"><h3 class="font-bold text-slate-900 text-lg text-serif flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-brand-emerald"></span>法的地位と責任範囲の明確化</h3><ul class="list-decimal pl-5 space-y-5 text-sm text-slate-600 font-light"><li><strong class="text-slate-900">日本の法律上のステータス:</strong> <br>いかなるご夫婦が海外医療機関で、あるいは海外に凍結胚を輸送して着床前診断の検査やコーディネーションサポートを受けても、日本の法律上一切の違法性はなく、刑罰や罰則が適用されることはありません。</li><li><strong class="text-slate-900">医療判断における免責:</strong> <br>一般社団法人受精卵着床前診断(PGT-A)相談窓口は、医療行為を一切提供しないコーディネーション団体です。検査を実施する意義、特定の胚を移植するかどうかの医学的な最終判断は、提携先病院の専門医のインフォームドコンセントおよび助言に基づき、ご夫婦の自律的な意思により決定されます。</li><li><strong class="text-slate-900">結果の非保証性:</strong> <br>本診断は、胚移植における流産率の極小化、および妊娠の可能性を高めるための先進科学的スクリーニング手段ですが、100%健康な出産や着床を医学的に保証することは現在の最新テクノロジーをもってしても不可能であることを予めご留意ください。</li></ul></div></div></div></section>
-        <section id="contact" class="py-24 md:py-32 bg-gradient-to-b from-brand-bg via-[#FAF8F5] to-[#FAF8F5]"><div class="max-w-4xl mx-auto px-6 text-center"><span class="text-xs font-bold tracking-widest text-[#D55F3C] uppercase block mb-3">1on1 Counselling</span><h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6 text-serif leading-tight">不透明な不安を無くし、一歩をともに。</h2><p class="text-slate-600 mb-12 max-w-2xl mx-auto font-light leading-relaxed text-sm md:text-base">私たちが知っているのは「流産の深い痛み」と、プロセスが不透明なことの「孤独と恐怖防」、そこで見つけた、科学的アプローチによる「新しい希望」です。<br>無理な勧誘や特定の価値観の押し付けは一切ございません。お気軽にご相談ください。</p><div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl inline-block w-full max-w-xl text-left border border-slate-50 relative overflow-hidden"><div class="absolute -top-4 -right-4 w-16 h-16 bg-brand-orange/10 text-brand-orange rounded-full flex items-center justify-center font-bold text-xs" aria-hidden="true">Support</div><div class="space-y-6"><a href="https://line.me/R/ti/p/@562mdyqh" class="group w-full bg-[#06C755] hover:bg-[#05B34C] text-white font-bold py-4 rounded-2xl transition duration-300 shadow-lg shadow-[#06C755]/20 flex items-center justify-center gap-3 tracking-widest"><svg class="w-7 h-7 flex-shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="16" fill="white"/><path d="M25 15.063C25 10.892 20.97 7.5 16 7.5 C11.03 7.5 7 10.892 7 15.063C7 17.324 8.192 19.351 10.123 20.678C9.689 22.227 9.07 24.314 9.014 24.512C8.947 24.747 9.098 24.744 9.198 24.678C9.328 24.593 14.188 21.36 15.438 20.505C15.624 20.518 15.811 20.526 16 20.526C20.97 20.526 25 17.134 25 15.063Z" fill="#06C755"/><path d="M11.693 12.352V16.324H13.629C13.882 16.324 14.088 16.118 14.088 15.865C14.088 15.612 13.882 15.406 13.629 15.406H12.611V12.352C12.611 12.099 12.405 11.893 12.152 11.893C11.899 11.893 11.693 12.099 11.693 12.352ZM15.462 12.352V16.324H13.629C13.882 16.324 14.088 16.118 14.088 15.865C14.088 15.612 13.882 15.406 13.629 15.406H12.611V12.352C12.611 12.099 12.405 11.893 12.152 11.893C11.899 11.893 11.693 12.099 11.693 12.352ZM20.151 12.352V16.324H18.215V12.352C18.215 12.099 18.009 11.893 17.756 11.893C17.503 11.893 17.297 12.099 17.297 12.352V16.324C17.297 16.577 17.503 16.783 17.756 16.783H20.151C20.404 16.783 20.61 16.577 20.61 16.324V12.352C20.61 12.099 20.404 11.893 20.151 11.893C19.898 11.893 19.692 12.099 19.692 12.352H20.151ZM24.032 12.352V14.153L22.259 11.956C22.164 11.8 22.022 11.8 21.879 11.821C21.737 11.842 21.614 11.939 21.565 12.073C21.543 12.133 21.533 12.197 21.533 12.261V16.324C21.533 16.577 21.739 16.783 21.992 16.783C22.245 16.783 22.451 16.577 22.451 16.324V14.523L24.224 16.72C24.346 16.87 24.544 16.92 24.717 16.853C24.891 16.787 25 16.613 25 16.427V12.352C25 12.099 24.794 11.893 24.541 11.893C24.288 11.893 24.082 12.099 24.082 12.352H24.032Z"/></svg><span class="text-base">LINEで相談・伴走をはじめる</span><svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></a><div class="flex flex-col sm:flex-row justify-between gap-6 border-t border-sky-50 pt-6"><div class="flex items-center gap-3"><div class="flex flex-col"><span class="text-[9px] text-slate-400 uppercase tracking-widest font-semibold">Email</span><span class="text-slate-700 text-sm font-medium"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="40292e262f30001027346d216e2f3227">[email&#160;protected]</a></span></div></div></div><p class="text-[10px] text-center text-slate-400 leading-relaxed">平日 9:00〜17:00 受付 | 東京オフィスでの対面相談も可能です</p></div></div></div></section>
+        <section id="medical" class="py-24 md:py-32 bg-[#FAF8F5] border-y border-slate-100">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="text-xs font-bold tracking-widest text-brand-emerald uppercase">Scientific Analysis</span>
+                    <h2 class="text-2xl md:text-3xl font-semibold text-slate-900 mt-2 tracking-tight text-serif">着床前遺伝学的検査（PGT）とは</h2>
+                    <p class="text-slate-500 text-sm mt-3 font-light">科学的根拠に基づき、胚移植前の遺伝情報を極めて精緻に解析します</p>
+                    <div class="w-12 h-[2px] bg-brand-emerald mx-auto mt-4"></div>
+                </div>
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-slate-100">
+                        <div class="space-y-6">
+                            <div class="w-12 h-12 rounded-xl bg-brand-emerald/5 text-brand-emerald flex items-center justify-center font-bold text-lg">A</div>
+                            <h3 class="text-xl font-bold text-slate-900 text-serif">染色体の異数性を確認する<br><span class="text-brand-orange text-sm font-sans tracking-normal">(PGT-A)</span></h3>
+                            <p class="text-sm text-slate-500 leading-relaxed font-light">
+                                受精胚から細胞を数個取り出し、ゲノム解析を行うことで、常染色体および性染色体の数の異常（異数性）を網羅的に調べます。胚移植の失敗や、初期流産の大きな原因である染色体異常を事前に把握し、流産回避と移植成功率向上を図ります。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-slate-100">
+                        <div class="space-y-6">
+                            <div class="w-12 h-12 rounded-xl bg-brand-orange/5 text-brand-orange flex items-center justify-center font-bold text-lg">M</div>
+                            <h3 class="text-xl font-bold text-slate-900 text-serif">特定の単一遺伝子疾患を調べる<br><span class="text-brand-emerald text-sm font-sans tracking-normal">(PGT-M)</span></h3>
+                            <p class="text-sm text-slate-500 leading-relaxed font-light">
+                                ご夫婦のいずれかが特定の遺伝性疾患（単一遺伝子異常）の保因者である場合などに、その原因となる遺伝子の変異がないかを解析します。次世代に重篤な遺伝性疾患を継承する精神的不安を解消するための極めて個別性の高い検査です。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between border border-slate-100">
+                        <div class="space-y-6">
+                            <div class="w-12 h-12 rounded-xl bg-brand-emerald/5 text-brand-emerald flex items-center justify-center font-bold text-lg">N</div>
+                            <h3 class="text-xl font-bold text-slate-900 text-serif">最新ゲノム解析「NGS法」<br><span class="text-brand-orange text-sm font-sans tracking-normal">(次世代シーケンシング)</span></h3>
+                            <p class="text-sm text-slate-500 leading-relaxed font-light">
+                                従来のFISH法やaCGH法と比較して,飛躍的に分析精度の高い次世代シーケンサー（NGS）技術を採用。解像度の向上により、これまで発見が困難であった一部分の細胞に異常が混在する「モザイク胚」の判定も行えます。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-16 bg-white rounded-[2.5rem] overflow-hidden shadow-md border border-slate-100 flex flex-col lg:flex-row">
+                    <div class="lg:w-1/2 relative h-64 lg:h-auto min-h-[280px]">
+                        <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&q=80&w=1000" 
+                             alt="顕微鏡や最先端の解析機が並ぶ高度生殖医療研究施設の内観" class="w-full h-full object-cover" 
+                             onerror="this.src='https://placehold.co/1000x600/0b4c38/ffffff?text=Global+Network'">
+                        <div class="absolute inset-0 bg-brand-emerald/10 mix-blend-multiply"></div>
+                    </div>
+                    <div class="lg:w-1/2 p-8 md:p-12 flex flex-col justify-center space-y-6">
+                        <span class="text-xs font-bold text-brand-orange uppercase tracking-widest">Global Medical Network</span>
+                        <h3 class="text-xl md:text-2xl font-bold text-slate-900 text-serif">世界最高峰の医療解析機関との堅固なアライアンス</h3>
+                        <p class="text-sm md:text-base text-slate-600 leading-relaxed font-light">
+                            提携先の「Fertility Institute of Hawaii」、アメリカ最高峰の遺伝子検査・解析機関「INVITAE」、不妊医療の先進国ウクライナの「NADIYA研究所」など、世界最高レベルの医師・培養士チームと連携し、揺るぎない精度を提供しています。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="selection" class="py-24 md:py-32 bg-white overflow-hidden relative">
+            <div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-16">
+                    <span class="text-xs font-bold tracking-widest text-[#D55F3C] uppercase">Family Planning Options</span>
+                    <h2 class="text-2xl md:text-3xl font-semibold text-slate-900 mt-2 tracking-tight text-serif">海外における「家族形成の選択肢」として</h2>
+                    <div class="w-12 h-[2px] bg-[#D55F3C] mx-auto mt-4"></div>
+                </div>
+                <div class="space-y-8 text-slate-600 leading-relaxed font-light text-base md:text-lg">
+                    <p>
+                        日本国内の生殖医療ガイドラインのもとでは現在、性別確認のみを目的とした胚移植の選択や情報開示は一切行えません。
+                    </p>
+                    <p>
+                        一方で、私たちが探携しているアメリカ合衆国やウクライナといった国際基準の管轄下では、患者様ご夫婦のライフプランに応じた「家族形成の正当な選択肢」として、着床前診断プロセスにおけるすべての染色体（XX/XY）の情報開示が適法かつ一般的に提供されています。
+                    </p>
+                    <div class="p-8 md:p-10 bg-[#FAF7F2] rounded-[2rem] border border-orange-200/40 my-12 space-y-6 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-brand-orange/5 rounded-full blur-2xl"></div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-2.5 h-2.5 rounded-full bg-brand-orange"></span>
+                            <h3 class="font-bold text-slate-900 text-lg text-serif">私たちの倫理的スタンス</h3>
+                        </div>
+                        <p class="text-slate-700 text-sm md:text-base leading-relaxed font-light space-y-2">
+                            私たちは,特定の性別の選択を過度にお勧めしたり推奨することは一切行いません。<br>
+                            「どのような構成の家族を築き、どのような人生を歩むのか」という価値観は、国境を越え,何よりも各ご家庭の多様な理念に基づいて選択されるべきだと考えます。<br><br>
+                            私たちは、海外の合法的な法整備のもとで生み出された高度な医療情報へのアクセスを安全にサポートし、患者様ご夫婦が十分に理解し、後悔のないご決断ができるよう「情報の透明性」を約束します。
+                        </p>
+                    </div>
+                    <p class="text-xs text-slate-400 italic">
+                        ※すべての医学的なデメリットや解析結果のご説明は、現地の有資格の医師による十分なインフォームドコンセントおよび指導のもとで行われます。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="workflow" class="py-24 md:py-32 bg-brand-bg border-t border-slate-100">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="text-xs font-bold tracking-widest text-brand-emerald uppercase">Process Visualization</span>
+                    <h2 class="text-2xl md:text-3xl font-semibold text-slate-900 mt-2 tracking-tight text-serif">進行管理の徹底した「見える化」</h2>
+                    <p class="text-slate-500 text-sm mt-3 font-light">当事者が最も苦しむ不妊治療の「暗箱（ブラックボックス）」を排除する強古な管理フロー</p>
+                    <div class="w-12 h-[2px] bg-brand-emerald mx-auto mt-4"></div>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+                    <div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between relative group">
+                        <span class="absolute top-6 right-8 text-4xl font-extrabold text-slate-101 group-hover:text-brand-emerald/10 transition-colors duration-300" aria-hidden="true">01</span>
+                        <div class="space-y-4 pt-4">
+                            <span class="text-[10px] text-brand-emerald font-bold uppercase tracking-wider block">採卵・受精胚凍結</span>
+                            <h3 class="text-lg font-bold text-slate-900 text-serif">国内提携病院での治療</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed font-light">
+                                日本国内の不妊治療専門クリニックにて、体外受精の治療を行います。生殖細胞が適切に凍結保存され、安全に保管されていることを専門スタッフが確認します。
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-4 border-t border-slate-100 text-[10px] text-slate-400 flex justify-between items-center">
+                            <span>所要目安: 個別周期</span>
+                            <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">国内医師判断</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-[2rem] border border-brand-orange/20 shadow-md flex flex-col justify-between relative group">
+                        <span class="absolute top-6 right-8 text-4xl font-extrabold text-brand-orange/10" aria-hidden="true">02</span>
+                        <div class="space-y-4 pt-4">
+                            <span class="text-[10px] text-brand-orange font-bold uppercase tracking-wider block">集荷・特急国際輸送</span>
+                            <h3 class="text-lg font-bold text-slate-900 text-serif">相談窓口の安心バイオ輸送</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed font-light">
+                                IATA認定 of 特別保冷容器（ドライシッパー）を使用。集荷、税関審査、現地受領に至るまで、24時間トラッキング監視を行いながら極めて安全にハワイやウクライナに配送。
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-4 border-t border-slate-100 text-[10px] text-slate-400 flex justify-between items-center">
+                            <span>所要目安: 約1週間以内</span>
+                            <span class="bg-brand-orange/10 text-brand-orange px-2 py-0.5 rounded font-bold">全行程可視化</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between relative group">
+                        <span class="absolute top-6 right-8 text-4xl font-extrabold text-slate-101 group-hover:text-brand-emerald/10 transition-colors duration-300" aria-hidden="true">03</span>
+                        <div class="space-y-4 pt-4">
+                            <span class="text-[10px] text-brand-emerald font-bold uppercase tracking-wider block">生検・NGSゲノム解析</span>
+                            <h3 class="text-lg font-bold text-slate-900 text-serif">海外提携ラボの分析</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed font-light">
+                                提携先の高度生殖医療機関の培養士が生検。最新のNGSゲノム解析を実施し、進行状況は常時システムログとして記録。書類等の不透明さを徹底的に排除。
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-4 border-t border-slate-100 text-[10px] text-slate-400 flex justify-between items-center">
+                            <span>所要目安: 3〜7週間</span>
+                            <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">海外ラボ実施</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between relative group">
+                        <span class="absolute top-6 right-8 text-4xl font-extrabold text-slate-101 group-hover:text-brand-emerald/10 transition-colors duration-300" aria-hidden="true">04</span>
+                        <div class="space-y-4 pt-4">
+                            <span class="text-[10px] text-brand-emerald font-bold uppercase tracking-wider block">返送・移植開始</span>
+                            <h3 class="text-lg font-bold text-slate-900 text-serif">国内移植治療</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed font-light">
+                                解析結果レポート（原本翻訳付き）を開示。安全に日本国内の提携先病院に返送された胚について、主治医と相談のうえ、移植スケジュールに基づき治療を開始します。
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-4 border-t border-slate-100 text-[10px] text-slate-400 flex justify-between items-center">
+                            <span>所要目安: 移植スケジュール別</span>
+                            <span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">主治医の最終判断</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 bg-white border border-slate-100 p-8 rounded-[2rem] shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                    <div class="space-y-2">
+                        <h4 class="text-slate-900 font-bold text-sm flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
+                            当相談窓口 進行可視化のコミットメント
+                        </h4>
+                        <p class="text-xs text-slate-500 leading-relaxed max-w-3xl font-light">
+                            「送金の内訳は正しいか」「胚は現在どこにあるのか」という情報を決してブラックボックスにしません。私たちは現地クリニックが発行する原本書類（請求書・各種同意書など）を日本語翻訳と共に100%患者様へ開示します。
+                        </p>
+                    </div>
+                    <div class="bg-brand-emerald text-white font-bold px-4 py-2.5 rounded-xl text-xs tracking-wider flex-shrink-0 shadow-sm">
+                        すべての不透明さを排除
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ethics" class="py-24 md:py-32 bg-[#FAF8F5] border-y border-slate-100">
+            <div class="max-w-4xl mx-auto px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="text-xs font-bold tracking-widest text-brand-emerald uppercase">Ethical Guidelines</span>
+                    <h2 class="text-2xl md:text-3xl font-semibold text-slate-900 mt-2 tracking-tight text-serif">日本の運用指針と海外における生殖医療法</h2>
+                    <div class="w-12 h-[2px] bg-brand-emerald mx-auto mt-4"></div>
+                </div>
+                <div class="space-y-8 text-slate-600 leading-relaxed font-light text-base md:text-lg">
+                    <p>
+                        日本産科婦人科学会は現在、着床前検査（PGT）について重篤な遺伝性疾患の保因者や反復胚移植不成功,反復流産（習慣流産）の既往がある方など、対象者を限定的に制限する指針を定めて運用しています。
+                    </p>
+                    <p>
+                        これにより、多くの方が国内での検査基準を満たせず、苦しい不妊治療や繰り返す流産の恐怖の中で、次のステップに進めずにおられるのが実情です。
+                    </p>
+                    <div class="p-8 md:p-10 bg-white border border-slate-100 rounded-[2rem] shadow-sm space-y-6 my-10">
+                        <h3 class="font-bold text-slate-900 text-lg text-serif flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brand-emerald"></span>
+                            法的地位と責任範囲の明確化
+                        </h3>
+                        <ul class="list-decimal pl-5 space-y-5 text-sm text-slate-600 font-light">
+                            <li>
+                                <strong class="text-slate-900">日本の法律上のステータス:</strong> <br>
+                                いかなるご夫婦が海外医療機関で、あるいは海外に凍結胚を輸送して着床前診断の検査やコーディネーションサポートを受けても、日本の法律上一切の違法性はなく、刑罰や罰則が適用されることはありません。
+                            </li>
+                            <li>
+                                <strong class="text-slate-900">医療判断における免責:</strong> <br>
+                                一般社団法人受精卵着床前診断(PGT-A)相談窓口は、医療行為を一切提供しないコーディネーション団体です。検査を実施する意義、特定の胚を移植するかどうかの医学的な最終判断は、提携先病院の専門医のインフォームドコンセントおよび助言に基づき、ご夫婦の自律的な意思により決定されます。
+                            </li>
+                            <li>
+                                <strong class="text-slate-900">結果の非保証性:</strong> <br>
+                                本診断は、胚移植における流産率の極小化、および妊娠の可能性を高めるための先進科学的スクリーニング手段ですが、100%健康な出産や着床を医学的に保証することは現在の最新テクノロジーをもってしても不可能であることを予めご留意ください。
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24 md:py-32 bg-gradient-to-b from-brand-bg via-[#FAF8F5] to-[#FAF8F5]">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <span class="text-xs font-bold tracking-widest text-[#D55F3C] uppercase block mb-3">1on1 Counselling</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6 text-serif leading-tight">不透明な不安を無くし、一歩をともに。</h2>
+                <p class="text-slate-600 mb-12 max-w-2xl mx-auto font-light leading-relaxed text-sm md:text-base">
+                    私たちが知っているのは「流産の深い痛み」と、プロセスが不透明なことの「孤独と恐怖防」、そこで見つけた、科学的アプローチによる「新しい希望」です。<br>
+                    無理な勧誘や特定の価値観の押し付けは一切ございません。お気軽にご相談ください。
+                </p>
+                <div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl inline-block w-full max-w-xl text-left border border-slate-50 relative overflow-hidden">
+                    <div class="absolute -top-4 -right-4 w-16 h-16 bg-brand-orange/10 text-brand-orange rounded-full flex items-center justify-center font-bold text-xs" aria-hidden="true">Support</div>
+                    <div class="space-y-6">
+                        <a href="https://line.me/R/ti/p/@562mdyqh" class="group w-full bg-[#06C755] hover:bg-[#05B34C] text-white font-bold py-4 rounded-2xl transition duration-300 shadow-lg shadow-[#06C755]/20 flex items-center justify-center gap-3 tracking-widest">
+                            <svg class="w-7 h-7 flex-shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="16" cy="16" r="16" fill="white"></circle>
+                                <path d="M25 15.063C25 10.892 20.97 7.5 16 7.5C11.03 7.5 7 10.892 7 15.063C7 17.324 8.192 19.351 10.123 20.678C9.689 22.227 9.07 24.314 9.014 24.512C8.947 24.747 9.098 24.744 9.198 24.678C9.328 24.593 14.188 21.36 15.438 20.505C15.624 20.518 15.811 20.526 16 20.526C20.97 20.526 25 17.134 25 15.063Z" fill="#06C755"></path>
+                                <path d="M11.693 12.352V16.324H13.629C13.882 16.324 14.088 16.118 14.088 15.865C14.088 15.612 13.882 15.406 13.629 15.406H12.611V12.352C12.611 12.099 12.405 11.893 12.152 11.893C11.899 11.893 11.693 12.099 11.693 12.352ZM15.462 12.352V16.324H13.629C13.882 16.324 14.088 16.118 14.088 15.865C14.088 15.612 13.882 15.406 13.629 15.406H12.611V12.352C12.611 12.099 12.405 11.893 12.152 11.893C11.899 11.893 11.693 12.099 11.693 12.352ZM20.151 12.352V16.324H18.215V12.352C18.215 12.099 18.009 11.893 17.756 11.893C17.503 11.893 17.297 12.099 17.297 12.352V16.324C17.297 16.577 17.503 16.783 17.756 16.783H20.151C20.404 16.783 20.61 16.577 20.61 16.324V12.352C20.61 12.099 20.404 11.893 20.151 11.893C19.898 11.893 19.692 12.099 19.692 12.352H20.151ZM24.032 12.352V14.153L22.259 11.956C22.164 11.8 22.022 11.8 21.879 11.821C21.737 11.842 21.614 11.939 21.565 12.073C21.543 12.133 21.533 12.197 21.533 12.261V16.324C21.533 16.577 21.739 16.783 21.992 16.783C22.245 16.783 22.451 16.577 22.451 16.324V14.523L24.224 16.72C24.346 16.87 24.544 16.92 24.717 16.853C24.891 16.787 25 16.613 25 16.427V12.352C25 12.099 24.794 11.893 24.541 11.893C24.288 11.893 24.082 12.099 24.082 12.352H24.032Z"><span class="text-base">LINEで相談・伴走をはじめる</span><svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></path>
+                        </a>
+                        <div class="flex flex-col sm:flex-row justify-between gap-6 border-t border-sky-50 pt-6">
+                            <div class="flex items-center gap-3">
+                                <div class="flex flex-col">
+                                    <span class="text-[9px] text-slate-400 uppercase tracking-widest font-semibold">Email</span>
+                                    <span class="text-slate-700 text-sm font-medium">info@pgt-a.org</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-[10px] text-center text-slate-400 leading-relaxed">平日 9:00〜17:00 受付 | 東京オフィスでの対面相談も可能です</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="bg-[#F4F5F7] text-slate-600 border-t border-slate-200/60 py-16">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row justify-between items-start gap-12">
                 <div class="max-w-md space-y-6">
-                    <div class="flex items-center"><img src="logo.png" alt="一般社団法人 受精卵着床前診断相談窓口 PGT-A相談窓口" class="h-12 w-auto object-contain"></div>
-                    <address class="text-xs text-slate-700 leading-relaxed not-italic font-medium">〒143-0024 東京都大田区中央1-12-5</address>
-                    <p class="text-[10px] text-slate-500 leading-relaxed">一般社団法人受精卵着床前診断(PGT-A)相談窓口は、医療斡線ではなく、患者様ご夫婦に寄り添った海外への安全なバイオ配送および渡航準備、情報の可視化・コーディネートを行う組織です。治療上のすべての責任および医学的判断は現地提携生殖医師団が管理・提供します。</p>
+                    <div class="flex items-center">
+                        <img src="logo.png" alt="一般社団法人 受精卵着床前診断相談窓口 PGT-A相談窓口" class="h-12 w-auto object-contain">
+                    </div>
+                    <address class="text-xs text-slate-700 leading-relaxed not-italic font-medium">
+                        〒143-0024 東京都大田区中央1-12-5
+                    </address>
+                    <p class="text-[10px] text-slate-500 leading-relaxed">
+                        一般社団法人受精卵着床前診断(PGT-A)相談窓口は、医療斡線ではなく、患者様ご夫婦に寄り添った海外への安全なバイオ配送および渡航準備、情報の可視化・コーディネートを行う組織です。治療上のすべての責任および医学的判断は現地提携生殖医師団が管理・提供します。
+                    </p>
                 </div>
                 <div class="grid grid-cols-2 gap-12 text-xs tracking-wider uppercase font-semibold">
                     <ul class="space-y-4 text-slate-600">
@@ -233,26 +591,51 @@
                     </ul>
                 </div>
             </div>
-            <div class="mt-16 pt-8 border-t border-slate-200 text-center text-[10px] text-slate-400">&copy; 2026 一般社団法人受精卵着床前診断(PGT-A)相談窓口 All rights reserved.</div>
+            <div class="mt-16 pt-8 border-t border-slate-200 text-center text-[10px] text-slate-400">
+                &copy; 2026 一般社団法人受精卵着床前診断(PGT-A)相談窓口 All rights reserved.
+            </div>
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-        
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); }); });
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // note記事スライダー左右スライド制御コード
         const slider = document.getElementById('noteSlider');
         const nextBtn = document.getElementById('slideNext');
         const prevBtn = document.getElementById('slidePrev');
+
         if (slider && nextBtn && prevBtn) {
-            nextBtn.addEventListener('click', () => { const firstCard = slider.querySelector('a'); if (!firstCard) return; slider.scrollBy({ left: firstCard.offsetWidth + 24, behavior: 'smooth' }); });
-            prevBtn.addEventListener('click', () => { const firstCard = slider.querySelector('a'); if (!firstCard) return; slider.scrollBy({ left: -(firstCard.offsetWidth + 24), behavior: 'smooth' }); });
-            slider.addEventListener('scroll', () => { const maxScroll = slider.scrollWidth - slider.clientWidth; prevBtn.style.opacity = slider.scrollLeft <= 5 ? '0.2' : '1'; nextBtn.style.opacity = slider.scrollLeft >= maxScroll - 5 ? '0.2' : '1'; });
+            nextBtn.addEventListener('click', () => {
+                const firstCard = slider.querySelector('a');
+                if (!firstCard) return;
+                const cardWidth = firstCard.offsetWidth + 24; // カード横幅 + gap
+                slider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+            });
+
+            prevBtn.addEventListener('click', () => {
+                const firstCard = slider.querySelector('a');
+                if (!firstCard) return;
+                const cardWidth = firstCard.offsetWidth + 24;
+                slider.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+            });
+
+            slider.addEventListener('scroll', () => {
+                const maxScroll = slider.scrollWidth - slider.clientWidth;
+                prevBtn.style.opacity = slider.scrollLeft <= 5 ? '0.2' : '1';
+                nextBtn.style.opacity = slider.scrollLeft >= maxScroll - 5 ? '0.2' : '1';
+            });
         }
     </script>
 </body>
