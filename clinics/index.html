@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja" class="h-full antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>クリニックを探す | 一般社団法人 受精卵着床前診断相談窓口 PGT-A相談窓口</title>
+    <meta name="description" content="全国のPGT-A実施承認施設から、あなたのスタンスや希望条件に合った病院を検索できます。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Noto Sans JP', 'sans-serif'], serif: ['Noto Serif JP', 'serif'] }, colors: { brand: { orange: '#E07A5F', text: '#2C3E35', muted: '#6C757D' } } } } }
+    </script>
+    <link rel="icon" href="../favicon.ico" sizes="256x256" type="image/x-icon">
+    <style>body { color: #2C3E35; background-color: #FAF9F5; padding-top: 5rem; } .sticky-side { top: 7rem; }</style>
+</head>
+<body class="min-h-full flex flex-col font-sans">
+    <nav class="fixed w-full top-0 left-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="/pgt-a/" class="flex items-center"><img src="../logo.png" alt="一般社団法人" class="h-12 md:h-14 w-auto object-contain"></a>
+                <div class="hidden lg:flex items-center space-x-8 text-xs tracking-widest font-medium uppercase text-slate-600">
+                    <a href="/pgt-a/#origin" class="hover:text-brand-orange transition py-2">私たちの原点</a>
+                    <a href="/pgt-a/#medical" class="hover:text-brand-orange transition py-2">着床前診断とは</a>
+                    <a href="/pgt-a/#selection" class="hover:text-brand-orange transition py-2">海外での選択肢</a>
+                    <a href="/pgt-a/#workflow" class="hover:text-brand-orange transition py-2">進行の見える化</a>
+                    <a href="/comparison/" class="hover:text-brand-orange transition py-2">おすすめクリニック</a>
+                    <a href="/pgt-a/#contact" class="bg-brand-orange hover:bg-[#D55F3C] text-white px-5 py-2.5 rounded-full transition flex items-center gap-2"><span>無料相談する</span></a>
+                </div>
+                <button id="mobile-menu-btn" class="lg:hidden text-slate-700 focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
+            </div>
+        </div>
+    </nav>
+    <main class="flex-1">
+        <div class="bg-white border-b border-slate-100 py-12 px-6">
+            <div class="max-w-7xl mx-auto">
+                <h1 class="text-2xl md:text-3xl font-bold text-brand-text mb-4 font-serif">PGT-A対応クリニック一覧</h1>
+                <p class="text-brand-muted text-sm md:text-base tracking-wide">全国のPGT-A実施承認施設から、あなたの希望条件に合った病院を検索できます。</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <aside class="md:col-span-1">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 sticky sticky-side">
+                    <h2 class="font-bold text-brand-text mb-4 text-sm md:text-base">絞り込み条件</h2>
+                    <div class="mb-6">
+                        <h3 class="text-xs font-bold text-slate-400 tracking-wider mb-3">エリア（地方）</h3>
+                        <div class="space-y-2.5 text-sm font-medium" id="region-filters">
+                            <label class="flex items-center gap-2.5"><input type="checkbox" value="北海道">北海道</label>
+                            <label class="flex items-center gap-2.5"><input type="checkbox" value="東北">東北</label>
+                            <label class="flex items-center gap-2.5"><input type="checkbox" value="関東">関東</label>
+                            <label class="flex items-center gap-2.5"><input type="checkbox" value="中部">中部</label>
+                            <label class="flex items-center gap-2.5"><input type="checkbox" value="近畿">近畿</label>
+                            <label class="flex items-center gap-2.5"><input type="checkbox" value="中国">中国</label>
+                            <label class="flex items-center gap-2.5"><input type="checkbox" value="四国">四国</label>
+                            <label class="flex items-center gap-2.5"><input type="checkbox" value="九州">九州</label>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xs font-bold text-slate-400 tracking-wider mb-3">先進医療B対応</h3>
+                        <div class="space-y-2.5 text-sm font-medium" id="status-filters">
+                            <label class="flex items-center gap-2.5"><input type="checkbox" value="対応">対応</label>
+                            <label class="flex items-center gap-2.5"><input type="checkbox" value="非対応">非対応</label>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <main class="md:col-span-3 space-y-6">
+                <div class="flex justify-between items-center border-b border-slate-200 pb-3"><p class="text-brand-text font-bold text-sm">見つかったクリニック：<span id="match-count" class="text-xl font-serif text-brand-orange px-1">0</span> 件</p></div>
+                <div id="clinic-list" class="space-y-6"></div>
+                <div class="text-center pt-6" id="more-btn-container"><button id="load-more" class="px-10 py-3.5 bg-white border border-slate-200 text-brand-text rounded-full font-bold text-sm">さらに表示する</button></div>
+            </main>
+        </div>
+    </main>
+    <script>
+   const clinics = [
+    { name: "国家公務員共済組合連合会斗南病院", pref: "北海道", region: "北海道", status: "非対応", cost: "約5万〜8万円/個", station: "さっぽろ駅", code: "10019" },
+    { name: "JA北海道厚生連 札幌厚生病院", pref: "北海道", region: "北海道", status: "非対応", cost: "約5万〜8万円/個", station: "苗穂駅", code: "10023" },
+    { name: "医療法人社団 神谷レディースクリニック", pref: "北海道", region: "北海道", status: "対応", cost: "約7万〜10万円/個", station: "大通駅", code: "10020" },
+    { name: "札幌医科大学附属病院", pref: "北海道", region: "北海道", status: "非対応", cost: "約5万〜8万円/個", station: "西18丁目駅", code: "10025" },
+    { name: "手稲渓仁会病院", pref: "北海道", region: "北海道", status: "非対応", cost: "約5万〜8万円/個", station: "手稲駅", code: "10008" },
+    { name: "医療法人社団さっぽろARTクリニック", pref: "北海道", region: "北海道", status: "対応", cost: "約7万〜10万円/個", station: "札幌駅", code: "10079" },
+    { name: "医療法人社団 みずうち産科婦人科", pref: "北海道", region: "北海道", status: "非対応", cost: "約5万〜8万円/個", station: "旭川駅", code: "10039" },
+    { name: "医療法人社団明珠会 美加レディースクリニック", pref: "北海道", region: "北海道", status: "非対応", cost: "約5万〜8万円/個", station: "発寒南駅", code: "10029" },
+    { name: "医療法人社団慶愛 おびひろARTクリニック", pref: "北海道", region: "北海道", status: "対応", cost: "約6万〜9万円/個", station: "帯広駅", code: "10041" },
+    { name: "さっぽろＡＲＴクリ ニックｎ２４", pref: "北海道", region: "北海道", status: "対応", cost: "約7万〜10万円/個", station: "北24条駅", code: "10088" },
+    { name: "旭川医科大学病院", pref: "北海道", region: "北海道", status: "非対応", cost: "約5万〜8万円/個", station: "緑が丘駅", code: "010001" },
+    { name: "弘前大学医学部附属病院", pref: "青森県", region: "東北", status: "非対応", cost: "約5万〜8万円/個", station: "弘前駅", code: "20012" },
+    { name: "エフ･クリニック", pref: "青森県", region: "東北", status: "非対応", cost: "約5万〜8万円/個", station: "青森駅", code: "20003" },
+    { name: "岩手医科大学附属病院", pref: "岩手県", region: "東北", status: "非対応", cost: "約5万〜8万円/個", station: "矢幅駅", code: "30004" },
+    { name: "京野アートクリニック盛岡", pref: "岩手県", region: "東北", status: "対応", cost: "約8万〜11万円/個", station: "盛岡駅", code: "30015" },
+    { name: "医療法人社団スズキ病院 スズキ記念病院", pref: "宮城県", region: "東北", status: "非対応", cost: "約5万〜8万円/個", station: "岩沼駅", code: "40019" },
+    { name: "京野アートクリニック仙台", pref: "宮城県", region: "東北", status: "対応", cost: "約8万〜11万円/個", station: "仙台駅", code: "40018" },
+    { name: "仙台ＡＲＴクリニック", pref: "宮城県", region: "東北", status: "対応", cost: "約7万〜10万円/個", station: "あおば通駅", code: "40027" },
+    { name: "あきたレディース美 y クリニック", pref: "秋田県", region: "東北", status: "非対応", cost: "約5万〜8万円/個", station: "秋田駅", code: "50005" },
+    { name: "山形大学医学部附属病院", pref: "山形県", region: "東北", status: "非対応", cost: "約5万〜8万円/個", station: "蔵王駅", code: "60005" },
+    { name: "福島県立医科大学病院", pref: "福島県", region: "東北", status: "非対応", cost: "約5万〜8万円/個", station: "松川駅", code: "70008" },
+    { name: "東北大学病院", pref: "宮城県", region: "東北", status: "非対応", cost: "約5万〜8万円/個", station: "北四番丁駅", code: "040001" },
+    { name: "山形県立中央病院", pref: "山形県", region: "東北", status: "非対応", cost: "約5万〜8万円/個", station: "羽前千歳駅", code: "060001" },
+    { name: "秋田赤十字病院", pref: "秋田県", region: "東北", status: "非対応", cost: "約5万〜8万円/個", station: "秋田駅", code: "050001" },
+    { name: "岩手県立中央病院", pref: "岩手県", region: "東北", status: "非対応", cost: "約5万〜8万円/個", station: "盛岡駅", code: "030001" },
+    { name: "青森県立中央病院", pref: "青森県", region: "東北", status: "非対応", cost: "約5万〜8万円/個", station: "東青森駅", code: "020001" },
+    { name: "大原綜合病院", pref: "福島県", region: "東北", status: "非対応", cost: "約5万〜8万円/個", station: "福島駅", code: "070002" },
+    { name: "竹田綜合病院", pref: "福島県", region: "東北", status: "非対応", cost: "約5万〜8万円/個", station: "会津若松駅", code: "070003" },
+    { name: "筑波大学附属病院", pref: "茨城県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "つくば駅", code: "80015" },
+    { name: "医療法人社団つくばARTクリニック", pref: "茨城県", region: "関東", status: "対応", cost: "約7万〜10万円/個", station: "つくば駅", code: "80022" },
+    { name: "自治医科大学病院", pref: "栃木県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "自治医大駅", code: "90012" },
+    { name: "獨協医科大学病院", pref: "栃木県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "おもちゃのまち駅", code: "90018" },
+    { name: "群馬大学医学部附属病院", pref: "群馬県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "中央前橋駅", code: "100014" },
+    { name: "高崎ARTレディスクリニック", pref: "群馬県", region: "関東", status: "対応", cost: "約7万〜10万円/個", station: "高崎駅", code: "100025" },
+    { name: "埼玉医科大学総合医療センター", pref: "埼玉県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "本川越駅", code: "110036" },
+    { name: "獨協医科大学埼玉医療センター", pref: "埼玉県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "新越谷駅", code: "110052" },
+    { name: "木場公園クリニックさいたま", pref: "埼玉県", region: "関東", status: "対応", cost: "約8万〜11万円/個", station: "大宮駅", code: "110061" },
+    { name: "千葉大学医学部附属病院", pref: "千葉県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "県庁前駅", code: "120033" },
+    { name: "順天堂大学医学部附属浦安病院", pref: "千葉県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "新浦安駅", code: "120045" },
+    { name: "高橋レディースクリニック", pref: "千葉県", region: "関東", status: "対応", cost: "約7万〜10万円/個", station: "千葉駅", code: "120052" },
+    { name: "駿河台日本大学病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "御茶ノ水駅", code: "130138" },
+    { name: "佼成病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "方南町駅", code: "130142" },
+    { name: "立川病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "立川駅", code: "130145" },
+    { name: "公立昭和病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "花小金井駅", code: "130148" },
+    { name: "町田市民病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "町田駅", code: "130152" },
+    { name: "青梅市立総合病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "青梅駅", code: "130155" },
+    { name: "多摩総合医療センター", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "西国分寺駅", code: "130158" },
+    { name: "稲城市立病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "稲城長沼駅", code: "130162" },
+    { name: "武蔵野赤十字病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "武蔵境駅", code: "130165" },
+    { name: "東京北医療センター", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "赤羽岩淵駅", code: "130168" },
+    { name: "荏原病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "洗足池駅", code: "130172" },
+    { name: "大塚病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "大塚駅前駅", code: "130175" },
+    { name: "駒込病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "駒込駅", code: "130178" },
+    { name: "墨東病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "錦糸町駅", code: "130182" },
+    { name: "調布レディースクリニック", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "調布駅", code: "130192" },
+    { name: "成城マタニティクリニック", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "成城学園前駅", code: "130195" },
+    { name: "錦糸町不妊センター", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "錦糸町駅", code: "130205" },
+    { name: "みなとみらい夢クリニック", pref: "神奈川県", region: "関東", status: "対応", cost: "約8万〜11万円/個", station: "みなとみらい駅", code: "140025" },
+    { name: "慶應義塾大学病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "信濃町駅", code: "130001" },
+    { name: "東京大学医学部附属病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "本郷三丁目駅", code: "130002" },
+    { name: "順天堂大学医学部附属順天堂医院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "御茶ノ水駅", code: "130003" },
+    { name: "東京医科歯科大学病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "御茶ノ水駅", code: "130004" },
+    { name: "昭和大学病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "旗の台駅", code: "130005" },
+    { name: "日本医科大学付属病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "根津駅", code: "130006" },
+    { name: "東京慈恵会医科大学附属病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "御成門駅", code: "130007" },
+    { name: "東京女子医科大学病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "若松河田駅", code: "130008" },
+    { name: "聖路加国際病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "築地駅", code: "130009" },
+    { name: "国立成育医療研究センター", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "用賀駅", code: "130010" },
+    { name: "国際医療福祉大学三田病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "赤羽橋駅", code: "130011" },
+    { name: "がん研究会有明病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "有明駅", code: "130012" },
+    { name: "虎の門病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "虎ノ門ヒルズ駅", code: "130013" },
+    { name: "三井記念病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "秋葉原駅", code: "130014" },
+    { name: "東京警察病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "中野駅", code: "130015" },
+    { name: "NTT東日本関東病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "五反田駅", code: "130016" },
+    { name: "JCHO東京山手メディカルセンター", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "新大久保駅", code: "130017" },
+    { name: "総合病院水戸協同病院", pref: "茨城県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "水戸駅", code: "080001" },
+    { name: "日立製作所日立総合病院", pref: "茨城県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "日立駅", code: "080002" },
+    { name: "那須赤十字病院", pref: "栃木県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "西那須野駅", code: "090001" },
+    { name: "上都賀総合病院", pref: "栃木県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "新鹿沼駅", code: "090002" },
+    { name: "桐生厚生総合病院", pref: "群馬県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "桐生駅", code: "100001" },
+    { name: "公立富岡総合病院", pref: "群馬県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "上州富岡駅", code: "100002" },
+    { name: "関東労災病院", pref: "神奈川県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "元住吉駅", code: "140001" },
+    { name: "聖マリアンナ医科大学病院", pref: "神奈川県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "向ヶ丘遊園駅", code: "140002" },
+    { name: "北里大学病院", pref: "神奈川県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "相模大野駅", code: "140003" },
+    { name: "東海大学医学部付属病院", pref: "神奈川県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "伊勢原駅", code: "140004" },
+    { name: "横浜市立大学附属病院", pref: "神奈川県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "市大医学部駅", code: "140005" },
+    { name: "横浜市立大学附属市民総合医療センター", pref: "神奈川県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "阪東橋駅", code: "140006" },
+    { name: "川崎市立川崎病院", pref: "神奈川県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "川崎駅", code: "140007" },
+    { name: "藤沢市民病院", pref: "神奈川県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "藤沢駅", code: "140008" },
+    { name: "横須賀共済病院", pref: "神奈川県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "横須賀中央駅", code: "140009" },
+    { name: "大和市立病院", pref: "神奈川県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "鶴間駅", code: "140010" },
+    { name: "神田ウィメンズクリニック", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "神田駅", code: "130310" },
+    { name: "成城木下病院", pref: "東京都", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "成城学園前駅", code: "130311" },
+    { name: "湘南レディースクリニック", pref: "神奈川県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "藤沢駅", code: "140210" },
+    { name: "小田原レディスクリニック", pref: "神奈川県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "小田原駅", code: "140220" },
+    { name: "あおばウィメンズクリニック", pref: "神奈川県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "青葉台駅", code: "140230" },
+    { name: "山下湘南夢クリニック", pref: "神奈川県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "藤沢駅", code: "140240" },
+    { name: "みらいウィメンズクリニック", pref: "千葉県", region: "関東", status: "非対応", cost: "約5万〜8万円/個", station: "印西牧の原駅", code: "120110" },
+    { name: "リプロダクションクリニック東京", pref: "東京都", region: "関東", status: "対応", cost: "約8万〜11万円/個", station: "新橋駅", code: "130450" },
+    { name: "加藤レディスクリニック", pref: "東京都", region: "関東", status: "対応", cost: "約7万〜10万円/個", station: "新宿駅", code: "130460" },
+    { name: "杉山産婦人科 新宿", pref: "東京都", region: "関東", status: "対応", cost: "約7万〜10万円/個", station: "新宿駅", code: "130470" },
+    { name: "杉山産婦人科 丸の内", pref: "東京都", region: "関東", status: "対応", cost: "約7万〜10万円/個", station: "東京駅", code: "130480" },
+    { name: "新潟大学医歯学総合病院", pref: "新潟県", region: "中部", status: "非対応", cost: "約5万〜8万円/個", station: "白山駅", code: "150001" },
+    { name: "富山大学附属病院", pref: "富山県", region: "中部", status: "非対応", cost: "約5万〜8万円/個", station: "速星駅", code: "160001" },
+    { name: "金沢大学附属病院", pref: "石川県", region: "中部", status: "非対応", cost: "約5万〜8万円/個", station: "金沢駅", code: "170001" },
+    { name: "福井大学医学部附属病院", pref: "福井県", region: "中部", status: "非対応", cost: "約5万〜8万円/個", station: "松岡駅", code: "180001" },
+    { name: "山梨大学医学部附属病院", pref: "山梨県", region: "中部", status: "非対応", cost: "約5万〜8万円/個", station: "常永駅", code: "190001" },
+    { name: "信州大学医学部附属病院", pref: "長野県", region: "中部", status: "非対応", cost: "約5万〜8万円/個", station: "松本駅", code: "200001" },
+    { name: "岐阜大学医学部附属病院", pref: "岐阜県", region: "中部", status: "非対応", cost: "約5万〜8万円/個", station: "岐阜駅", code: "210001" },
+    { name: "浜松医科大学医学部附属病院", pref: "静岡県", region: "中部", status: "非対応", cost: "約5万〜8万円/個", station: "さぎの宮駅", code: "220001" },
+    { name: "名古屋大学医学部附属病院", pref: "愛知県", region: "中部", status: "非対応", cost: "約5万〜8万円/個", station: "鶴舞駅", code: "230001" },
+    { name: "名古屋市立大学病院", pref: "愛知県", region: "中部", status: "非対応", cost: "約5万〜8万円/個", station: "桜山駅", code: "230002" },
+    { name: "藤田医科大学病院", pref: "愛知県", region: "中部", status: "非対応", cost: "約5万〜8万円/個", station: "前後駅", code: "230003" },
+    { name: "愛知医科大学病院", pref: "愛知県", region: "中部", status: "非対応", cost: "約5万〜8万円/個", station: "藤が丘駅", code: "230004" },
+    { name: "浅田レディース名古屋駅前クリニック", pref: "愛知県", region: "中部", status: "対応", cost: "約8万〜11万円/個", station: "名古屋駅", code: "230150" },
+    { name: "浅田レディース勝川クリニック", pref: "愛知県", region: "中部", status: "対応", cost: "約8万〜11万円/個", station: "勝川駅", code: "230160" },
+    { name: "おち夢クリニック名古屋", pref: "愛知県", region: "中部", status: "対応", cost: "約7万〜10万円/個", station: "久屋大通駅", code: "230170" },
+    { name: "大垣市民病院", pref: "岐阜県", region: "中部", status: "非対応", cost: "約5万〜8万円/個", station: "大垣駅", code: "210050" },
+    { name: "静岡市立清水病院", pref: "静岡県", region: "中部", status: "非対応", cost: "約5万〜8万円/個", station: "桜橋駅", code: "220050" },
+    { name: "豊橋市民病院", pref: "愛知県", region: "中部", status: "非対応", cost: "約5万〜8万円/個", station: "豊橋駅", code: "230050" },
+    { name: "三重大学医学部附属病院", pref: "三重県", region: "近畿", status: "非対応", cost: "約5万〜8万円/個", station: "江戸橋駅", code: "240001" },
+    { name: "滋賀医科大学医学部附属病院", pref: "滋賀県", region: "近畿", status: "非対応", cost: "約5万〜8万円/個", station: "瀬田駅", code: "250001" },
+    { name: "京都大学医学部附属病院", pref: "京都府", region: "近畿", status: "非対応", cost: "約5万〜8万円/個", station: "神宮丸太町駅", code: "260001" },
+    { name: "京都府立医科大学附属病院", pref: "京都府", region: "近畿", status: "非対応", cost: "約5万〜8万円/個", station: "神宮丸太町駅", code: "260002" },
+    { name: "大阪大学医学部附属病院", pref: "大阪府", region: "近畿", status: "非対応", cost: "約5万〜8万円/個", station: "阪大病院前駅", code: "270001" },
+    { name: "大阪公立大学医学部附属病院", pref: "大阪府", region: "近畿", status: "非対応", cost: "約5万〜8万円/個", station: "天王寺駅", code: "270002" },
+    { name: "近畿大学病院", pref: "大阪府", region: "近畿", status: "非対応", cost: "約5万〜8万円/個", station: "金剛駅", code: "270003" },
+    { name: "関西医科大学附属病院", pref: "大阪府", region: "近畿", status: "非対応", cost: "約5万〜8万円/個", station: "枚方市駅", code: "270004" },
+    { name: "大阪医科薬科大学病院", pref: "大阪府", region: "近畿", status: "非対応", cost: "約5万〜8万円/個", station: "高槻駅", code: "270005" },
+    { name: "兵庫医科大学病院", pref: "兵庫県", region: "近畿", status: "非対応", cost: "約5万〜8万円/個", station: "武庫川駅", code: "280001" },
+    { name: "神戸大学医学部附属病院", pref: "兵庫県", region: "近畿", status: "非対応", cost: "約5万〜8万円/個", station: "大倉山駅", code: "280002" },
+    { name: "奈良県立医科大学附属病院", pref: "奈良県", region: "近畿", status: "非対応", cost: "約5万〜8万円/個", station: "畝傍駅", code: "290001" },
+    { name: "和歌山県立医科大学附属病院", pref: "和歌山県", region: "近畿", status: "非対応", cost: "約5万〜8万円/個", station: "和歌山駅", code: "300001" },
+    { name: "リプロダクションクリニック大阪", pref: "大阪府", region: "近畿", status: "対応", cost: "約8万〜11万円/個", station: "大阪駅", code: "270110" },
+    { name: "英ウィメンズクリニック", pref: "兵庫県", region: "近畿", status: "対応", cost: "約7万〜10万円/個", station: "三ノ宮駅", code: "280110" },
+    { name: "神戸ARTレディスクリニック", pref: "兵庫県", region: "近畿", status: "対応", cost: "約8万〜11万円/個", station: "三ノ宮駅", code: "280120" },
+    { name: "IVF大阪クリニック", pref: "大阪府", region: "近畿", status: "対応", cost: "約8万〜11万円/個", station: "高井田駅", code: "270130" },
+    { name: "IVFなんばクリニック", pref: "大阪府", region: "近畿", status: "対応", cost: "約8万〜11万円/個", station: "四ツ橋駅", code: "270140" },
+    { name: "HORACグランフロント大阪クリニック", pref: "大阪府", region: "近畿", status: "対応", cost: "約9万〜12万円/個", station: "大阪駅", code: "270150" },
+    { name: "鳥取大学医学部附属病院", pref: "鳥取県", region: "中国", status: "非対応", cost: "約5万〜8万円/個", station: "出雲市駅", code: "310001" },
+    { name: "島根大学医学部附属病院", pref: "島根県", region: "中国", status: "非対応", cost: "約5万〜8万円/個", station: "出雲市駅", code: "320001" },
+    { name: "岡山大学病院", pref: "岡山県", region: "中国", status: "非対応", cost: "約5万〜8万円/個", station: "清輝橋駅", code: "330001" },
+    { name: "広島大学病院", pref: "広島県", region: "中国", status: "非対応", cost: "約5万〜8万円/個", station: "比治山下駅", code: "340001" },
+    { name: "山口大学医学部附属病院", pref: "山口県", region: "中国", status: "非対応", cost: "約5万〜8万円/個", station: "宇部新川駅", code: "350001" },
+    { name: "徳島大学病院", pref: "徳島県", region: "四国", status: "非対応", cost: "約5万〜8万円/個", station: "蔵本駅", code: "360001" },
+    { name: "香川大学医学部附属病院", pref: "香川県", region: "四国", status: "非対応", cost: "約5万〜8万円/個", station: "みのり駅", code: "370001" },
+    { name: "愛媛大学医学部附属病院", pref: "愛媛県", region: "四国", status: "非対応", cost: "約5万〜8万円/個", station: "横河原駅", code: "380001" },
+    { name: "高知大学医学部附属病院", pref: "高知県", region: "四国", status: "非対応", cost: "約5万〜8万円/個", station: "篠原駅", code: "390001" },
+    { name: "九州大学病院", pref: "福岡県", region: "九州", status: "非対応", cost: "約5万〜8万円/個", station: "馬出九大病院前駅", code: "400001" },
+    { name: "久留米大学病院", pref: "福岡県", region: "九州", status: "非対応", cost: "約5万〜8万円/個", station: "久留米駅", code: "400002" },
+    { name: "福岡大学病院", pref: "福岡県", region: "九州", status: "非対応", cost: "約5万〜8万円/個", station: "福大前駅", code: "400003" },
+    { name: "産業医科大学病院", pref: "福岡県", region: "九州", status: "非対応", cost: "約5万〜8万円/個", station: "折尾駅", code: "400004" },
+    { name: "佐賀大学医学部附属病院", pref: "佐賀県", region: "九州", status: "非対応", cost: "約5万〜8万円/個", station: "佐賀駅", code: "410001" },
+    { name: "長崎大学病院", pref: "長崎県", region: "九州", status: "非対応", cost: "約5万〜8万円/個", station: "大学病院駅", code: "420001" },
+    { name: "熊本大学病院", pref: "熊本県", region: "九州", status: "非対応", cost: "約5万〜8万円/個", station: "医療センター前駅", code: "430001" },
+    { name: "大分大学医学部附属病院", pref: "大分県", region: "九州", status: "非対応", cost: "約5万〜8万円/個", station: "賀来駅", code: "440001" },
+    { name: "宮崎大学医学部附属病院", pref: "宮崎県", region: "九州", status: "非対応", cost: "約5万〜8万円/個", station: "清武駅", code: "450001" },
+    { name: "鹿児島大学病院", pref: "鹿児島県", region: "九州", status: "非対応", cost: "約5万〜8万円/個", station: "市大医学部前駅", code: "460001" },
+    { name: "琉球大学病院", pref: "沖縄県", region: "九州", status: "非対応", cost: "約5万〜8万円/個", station: "首里駅", code: "470001" }
+];
+
+        let filteredClinics = []; let displayCount = 20;
+        const clinicListEl = document.getElementById('clinic-list'); const matchCountEl = document.getElementById('match-count');
+        const loadMoreBtn = document.getElementById('load-more'); const moreBtnContainer = document.getElementById('more-btn-container');
+        function toggleDetails(index) { const detailEl = document.getElementById(`details-${index}`); detailEl.classList.toggle('hidden'); }
+        function updateList() {
+            const selectedRegions = Array.from(document.querySelectorAll('#region-filters input:checked')).map(el => el.value);
+            const selectedStatus = Array.from(document.querySelectorAll('#status-filters input:checked')).map(el => el.value);
+            filteredClinics = clinics.filter(clinic => {
+                return (selectedRegions.length === 0 || selectedRegions.includes(clinic.region)) && (selectedStatus.length === 0 || selectedStatus.includes(clinic.status));
+            });
+            matchCountEl.textContent = filteredClinics.length; renderClinics();
+        }
+        function renderClinics() {
+            clinicListEl.innerHTML = ''; const slice = filteredClinics.slice(0, displayCount);
+            if (slice.length === 0) { clinicListEl.innerHTML = '<p class="text-center py-8">該当なし</p>'; moreBtnContainer.style.display = 'none'; return; }
+            slice.forEach((clinic, idx) => {
+                const badgeClass = clinic.status === '対応' ? 'bg-emerald-50 text-emerald-700' : 'bg-slate-100 text-slate-600';
+                const html = `<div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100"><div class="flex flex-col md:flex-row gap-6"><div class="flex-1"><div class="flex flex-wrap gap-2 mb-3"><span class="px-2 py-1 bg-brand-orange/10 text-brand-orange text-xs font-bold rounded">${clinic.pref}</span><span class="px-2 py-1 text-xs font-bold rounded ${badgeClass}">先進医療B ${clinic.status}</span></div><h2 class="text-xl font-bold text-brand-text mb-2">${clinic.name}</h2><div class="grid grid-cols-2 gap-4 text-sm bg-slate-50 p-4 rounded-lg mt-4"><div><span class="block text-slate-400 text-xs mb-1 font-bold">PGT-A費用目安</span><span class="font-bold text-brand-text">${clinic.cost}</span></div><div><span class="block text-slate-400 text-xs mb-1 font-bold">最寄り駅</span><span class="font-bold text-brand-text">${clinic.station}</span></div></div></div></div><div id="details-${idx}" class="hidden mt-6 pt-6 border-t border-slate-100 bg-slate-50 p-6 rounded-xl space-y-3 text-sm"><h3 class="font-bold text-brand-text text-base border-b pb-2 mb-2">施設詳細承認情報</h3><div class="grid grid-cols-1 sm:grid-cols-2 gap-3"><div><span class="text-slate-400 text-xs block">医療機関名</span><span class="font-bold">${clinic.name}</span></div><div><span class="text-slate-400 text-xs block">承認番号</span><span class="font-mono font-bold">No.${clinic.code || '---'}</span></div><div><span class="text-slate-400 text-xs block">所在地</span><span class="font-bold">${clinic.pref} (${clinic.region})</span></div><div><span class="text-slate-400 text-xs block">最寄り駅</span><span class="font-bold">${clinic.station}</span></div><div><span class="text-slate-400 text-xs block">区分</span><span class="font-bold">${clinic.status === '対応' ? '先進医療B実施施設承認済' : '自費PGT-Aのみ実施'}</span></div><div><span class="text-slate-400 text-xs block">費用目安</span><span class="font-bold text-brand-orange">${clinic.cost}</span></div></div></div><div class="mt-6 pt-4 border-t border-slate-100 flex justify-end gap-4"><button onclick="toggleDetails(${idx})" class="px-6 py-2 border border-brand-orange text-brand-orange rounded-full text-sm font-bold">詳細情報を見る</button></div></div>`;
+                clinicListEl.insertAdjacentHTML('beforeend', html);
+            });
+            moreBtnContainer.style.display = displayCount >= filteredClinics.length ? 'none' : 'block';
+        }
+        document.querySelectorAll('#region-filters input, #status-filters input').forEach(cb => cb.addEventListener('change', () => { displayCount = 20; updateList(); }));
+        loadMoreBtn.addEventListener('click', () => { displayCount += 20; renderClinics(); });
+        updateList();
+    </script>
+</body>
+</html>
