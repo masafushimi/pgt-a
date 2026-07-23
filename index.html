@@ -10,6 +10,25 @@
 
   gtag('config', 'AW-18343348884');
 </script>
+	<!-- Event snippet for リードフォームの送信 conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18343348884/3iovCKO7g9UcEJSV5apE',
+      'value': 1.0,
+      'currency': 'JPY',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>一般社団法人受精卵着床前診断(PGT-A)相談窓口 | 自分らしい家族のかたちを、安心して選べる社会へ</title>
@@ -193,7 +212,7 @@
                     </div>
 
                     <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-5 pt-2">
-                        <a href="https://line.me/R/ti/p/@562mdyqh" class="group relative flex items-center justify-center bg-[#06C755] hover:bg-[#05B34C] text-white px-8 py-5 rounded-full font-bold tracking-widest transition-all duration-300 text-center shadow-lg shadow-[#06C755]/20 min-w-[300px]">
+                        <a href="https://line.me/R/ti/p/@562mdyqh" onclick="return gtag_report_conversion(this.href);" class="group relative flex items-center justify-center bg-[#06C755] hover:bg-[#05B34C] text-white px-8 py-5 rounded-full font-bold tracking-widest transition-all duration-300 text-center shadow-lg shadow-[#06C755]/20 min-w-[300px]">
                             <div class="flex items-center gap-3">
                                 <svg class="w-7 h-7 flex-shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="16" cy="16" r="16" fill="white"/>
@@ -210,7 +229,7 @@
                             </span>
                         </a>
 
-                        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3zyKdsYPv0_ILEwvvaCHXo2cdLUBnYd1W6LnzegmzfmrnqHn4R8PxVjlYtJqSK_2Ie2KEhGhrS" class="group flex items-center justify-center gap-3 bg-brand-emerald text-white px-8 py-5 rounded-full font-bold tracking-widest transition-all duration-300 text-center shadow-lg shadow-brand-emerald/10 min-w-[280px] hover:bg-brand-emerald-light">
+                        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3zyKdsYPv0_ILEwvvaCHXo2cdLUBnYd1W6LnzegmzfmrnqHn4R8PxVjlYtJqSK_2Ie2KEhGhrS" onclick="return gtag_report_conversion(this.href);" class="group flex items-center justify-center gap-3 bg-brand-emerald text-white px-8 py-5 rounded-full font-bold tracking-widest transition-all duration-300 text-center shadow-lg shadow-brand-emerald/10 min-w-[280px] hover:bg-brand-emerald-light">
                             <svg class="w-11 h-11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
                             <span class="text-base">オンラインカウンセリング</span>
                         </a>
@@ -616,7 +635,7 @@
                 <div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl inline-block w-full max-w-xl text-left border border-slate-50 relative overflow-hidden">
                     <div class="absolute -top-4 -right-4 w-16 h-16 bg-brand-orange/10 text-brand-orange rounded-full flex items-center justify-center font-bold text-xs" aria-hidden="true">Support</div>
                     <div class="space-y-6">
-                        <a href="https://line.me/R/ti/p/@562mdyqh" class="group w-full bg-[#06C755] hover:bg-[#05B34C] text-white font-bold py-4 rounded-2xl transition duration-300 shadow-lg shadow-[#06C755]/20 flex items-center justify-center gap-3 tracking-widest">
+                        <a href="https://line.me/R/ti/p/@562mdyqh" onclick="return gtag_report_conversion(this.href);" class="group w-full bg-[#06C755] hover:bg-[#05B34C] text-white font-bold py-4 rounded-2xl transition duration-300 shadow-lg shadow-[#06C755]/20 flex items-center justify-center gap-3 tracking-widest">
                             <svg class="w-7 h-7 flex-shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="16" cy="16" r="16" fill="white"></circle>
                                 <path d="M25 15.063C25 10.892 20.97 7.5 16 7.5C11.03 7.5 7 10.892 7 15.063C7 17.324 8.192 19.351 10.123 20.678C9.689 22.227 9.07 24.314 9.014 24.512C8.947 24.747 9.098 24.744 9.198 24.678C9.328 24.593 14.188 21.36 15.438 20.505C15.624 20.518 15.811 20.526 16 20.526C20.97 20.526 25 17.134 25 15.063Z" fill="#06C755"></path>
